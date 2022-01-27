@@ -10,6 +10,7 @@ const SetProductEtc = () => {
     flex-direction: row;
     width: 800px;
     height: 60px;
+    border: 1px solid darkgrey;
   `;
   const EtcTitle = styled.div`
     background-color: #e4e4e4;
@@ -18,6 +19,7 @@ const SetProductEtc = () => {
     height: 100%;
     align-items: center;
     margin-right: 40px;
+    border-right: 2px solid darkgrey;
   `;
 
   return (

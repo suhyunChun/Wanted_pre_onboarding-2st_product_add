@@ -18,6 +18,7 @@ const SetProductBenefit = () => {
     height: 100%;
     align-items: center;
     margin-right: 40px;
+    border-right: 2px solid darkgrey;
   `;
 
   return (

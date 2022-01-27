@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import AddProductInfoForm from './AddProductInfoForm';
-
+import SetProductImage from './SetProductImage';
 const AddProductInfoTemplate = () => {
+  const [introImage, setIntroImg] = useState([]);
+  const [recommendImage, setRecommendImage] = useState([]);
   const [addProductInfoList, setAddProductInfoList] = useState([
     {
       header: '노출 및 판매 기간 설정',
@@ -21,8 +23,18 @@ const AddProductInfoTemplate = () => {
       ],
     },
     { header: '상품 옵션', categories: [] },
-    { header: '상품 소개 이미지', categories: [] },
-    { header: '구매자 추천 이미지', categories: [] },
+    {
+      header: (
+        <SetProductImage title="상품 소개 이미지" imgArray={introImage} />
+      ),
+      categories: [],
+    },
+    {
+      header: (
+        <SetProductImage title="구매자 추천 이미지" imgArray={recommendImage} />
+      ),
+      categories: [],
+    },
     { header: '상품 정보 고시', categories: [] },
     {
       header: '상품 배송 설정',

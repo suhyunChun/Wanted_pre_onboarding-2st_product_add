@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import AddProductInfoForm from './AddProductInfoForm';
 import SetProductImage from './SetProductImage';
+import SetProductBenefit from './SetProductBenefit';
+
 const AddProductInfoTemplate = () => {
   const [introImage, setIntroImg] = useState([]);
   const [recommendImage, setRecommendImage] = useState([]);
@@ -44,7 +46,7 @@ const AddProductInfoTemplate = () => {
         '선 주문 예약 배송',
       ],
     },
-    { header: '상품 혜택 허용 설정', categories: ['마일리지 적립'] },
+    { header: '상품 혜택 허용 설정', categories: [<SetProductBenefit />] },
     { header: '기타', categories: ['감사 카드 제공'] },
   ]);
 

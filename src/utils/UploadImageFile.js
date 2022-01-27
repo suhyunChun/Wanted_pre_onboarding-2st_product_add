@@ -1,13 +1,53 @@
 import { useState } from 'react';
+import styled from 'styled-components';
 
 const UploadImageFile = ({ title, imgArray }) => {
   const [tmpArr, setTmpArr] = useState(imgArray);
 
+  const Uploadimagecontainer = styled.div`
+    border: 1px solid lightgray;
+    display: flex;
+    width: 800px;
+    flex-direction: column;
+    margin: 30px;
+  `;
+  const UploadImageTitle = styled.div`
+    border-bottom: 1px solid lightgray;
+    width: 100%;
+    float: left;
+    display: flex;
+    padding: 10px;
+    font-weight: 700;
+  `;
+  const UploadImageInfo = styled.div`
+    margin: 10px;
+    display: flex;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    flex-direction: row;
+  `;
+  const UploadImageBtn = styled.label`
+    font-size: 16px;
+    padding: 10px;
+    border: 2px solid #1c1c81;
+    width: 130px;
+    height: 45px;
+
+    font-weight: 550;
+  `;
+  const ImageList = styled.div`
+    margin-left: 5%;
+  `;
+  const CancleBtn = styled.button`
+    border-radius: 100%;
+    border: 1px solid lightgray;
+    background-color: transparent;
+  `;
   return (
-    <div className="upload-image-container">
-      <div className="upload-image-title">{title}</div>
-      <div className="upload-image-info">
-        <label className="upload-image-btn">
+    <Uploadimagecontainer>
+      <UploadImageTitle>{title}</UploadImageTitle>
+      <UploadImageInfo>
+        <UploadImageBtn>
           <input
             id="input-file-img"
             style={{ width: '0%' }}
@@ -16,8 +56,8 @@ const UploadImageFile = ({ title, imgArray }) => {
             onChange={e => setTmpArr([e.target.files[0].name].concat(tmpArr))}
           />
           + 이미지 추가
-        </label>
-        <div className="image-list">
+        </UploadImageBtn>
+        <ImageList>
           {tmpArr.map(i => (
             <div
               onClick={e => {
@@ -30,12 +70,12 @@ const UploadImageFile = ({ title, imgArray }) => {
                 marginBottom: '10px',
               }}
             >
-              {i} <button className="cancleBtn"> X </button>
+              {i} <CancleBtn> X </CancleBtn>
             </div>
           ))}
-        </div>
-      </div>
-    </div>
+        </ImageList>
+      </UploadImageInfo>
+    </Uploadimagecontainer>
   );
 };
 

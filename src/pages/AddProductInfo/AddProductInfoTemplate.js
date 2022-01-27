@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import AddProductInfoForm from './AddProductInfoForm';
 import SetProductImage from './SetProductImage';
 import SetProductBenefit from './SetProductBenefit';
+import SetProductEtc from './SetProductEtc';
 
 const AddProductInfoTemplate = () => {
   const [introImage, setIntroImg] = useState([]);
@@ -47,7 +48,7 @@ const AddProductInfoTemplate = () => {
       ],
     },
     { header: '상품 혜택 허용 설정', categories: [<SetProductBenefit />] },
-    { header: '기타', categories: ['감사 카드 제공'] },
+    { header: '기타', categories: [<SetProductEtc />] },
   ]);
 
   return (

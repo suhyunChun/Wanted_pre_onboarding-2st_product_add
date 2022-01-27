@@ -68,7 +68,7 @@ const SetExposureAndPeriod = () => {
         <LocalizationProvider dateAdapter={AdapterDateFns}>
           <DateTimePicker
             renderInput={props => <TextField {...props} />}
-            label="마지막 날"
+            label="마지막 날짜"
             inputFormat={'yyyy.MM.dd hh:mm'}
             value={periodDate}
             onChange={newValue => {

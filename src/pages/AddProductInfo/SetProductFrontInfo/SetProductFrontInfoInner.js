@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, { useCallback, useState } from 'react';
 import styled from 'styled-components';
+import { debounce } from 'lodash';
 
 const SetProductFrontInfoInner = ({
   productListOfEachItem,
@@ -7,10 +8,6 @@ const SetProductFrontInfoInner = ({
   setTotalProductList,
   totalProductList,
 }) => {
-  const [copiedProductList, setCopiedProductList] = useState([
-    ...productListOfEachItem,
-  ]);
-
   const FrontInfoInner = styled.div`
     padding: 30px;
     background-color: white;
@@ -75,6 +72,9 @@ const SetProductFrontInfoInner = ({
     flex-direction: column;
     justify-content: space-between;
   `;
+  const [copiedProductList, setCopiedProductList] = useState([
+    ...productListOfEachItem,
+  ]);
 
   const AddQuestionInFrontINformation = e => {
     let tmpProductList = [...copiedProductList];
@@ -87,23 +87,25 @@ const SetProductFrontInfoInner = ({
 
   const handleDeletingFrontInfoForm = e => {
     let tmpTotalProductList = [...totalProductList];
+    console.log('>>', e.target.name, tmpTotalProductList);
     tmpTotalProductList.splice(e.target.name, 1);
     setTotalProductList(tmpTotalProductList);
   };
 
   const handleDeletionQuestion = e => {
     let idx = e.target.name;
-    let tmpProductListOfEachItem = [...productListOfEachItem];
-    tmpProductListOfEachItem.splice(idx, 1);
+    let tmpProdcutListOfEachItem = [...copiedProductList];
+    tmpProdcutListOfEachItem.splice(idx, 1);
     let tmpTotalProductList = [...totalProductList];
-    tmpTotalProductList[numberOfProduct] = tmpProductListOfEachItem;
+    tmpTotalProductList[numberOfProduct] = [...tmpProdcutListOfEachItem];
     console.log(tmpTotalProductList);
+    setCopiedProductList(tmpProdcutListOfEachItem);
     setTotalProductList(tmpTotalProductList);
   };
+
   const storeValueInFrontInfo = (event, index) => {
     const target = event.target;
     const value = target.value;
-    const name = target.name;
     let tmpProductList = [...copiedProductList];
     if (target.className === 'addedQuestion') {
       tmpProductList[index].question = value;
@@ -138,7 +140,7 @@ const SetProductFrontInfoInner = ({
                   name={item.question}
                   value={item.answer}
                   placeholder={item.question + '을 입력을 해주세요'}
-                  onInput={event => storeValueInFrontInfo(event, index)}
+                  onChange={event => storeValueInFrontInfo(event, index)}
                 />
               </div>
             ) : (
@@ -148,13 +150,13 @@ const SetProductFrontInfoInner = ({
                   placeholder="항목 제목 자유 입력"
                   name={item.question}
                   value={item.question}
-                  onInput={event => storeValueInFrontInfo(event, index)}
+                  onChange={event => storeValueInFrontInfo(event, index)}
                 />{' '}
                 <input
                   name={item.question}
                   value={item.answer}
                   placeholder="내용을 입력해주세요."
-                  onInput={event => storeValueInFrontInfo(event, index)}
+                  onChange={event => storeValueInFrontInfo(event, index)}
                 />
                 <FrontInfoInfoDeleteBtn
                   name={index}

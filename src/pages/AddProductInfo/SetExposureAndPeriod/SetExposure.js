@@ -9,7 +9,7 @@ const SetExposure = () => {
   const [exposureStartDate, setExposureStartDate] = useState([null, null]);
   const [exposureLastDate, setExposureLastDate] = useState([null, null]);
   const [exposureClicked, setExposureClicked] = useState({
-    selectValue: 'exposureShow',
+    selectValue: '제한 없음',
   });
   const [exposureData, setExposureData] =
     useState(`상품 노출 기한 : 제한 없음`);
@@ -53,6 +53,8 @@ const SetExposure = () => {
   };
 
   console.log(exposureData);
+  console.log(`시작 날짜: ${exposureStartDate}`);
+  console.log(`마지막 날짜: ${exposureLastDate}`);
   return (
     <Container>
       <ContainerIndex>
@@ -63,8 +65,8 @@ const SetExposure = () => {
                 id="exposureShow"
                 type="radio"
                 name="group1"
-                value="exposureShow"
-                checked={exposureClicked.selectValue === 'exposureShow'}
+                value="제한 없음"
+                checked={exposureClicked.selectValue === '제한 없음'}
                 onChange={exposureChange}
               />
               <label for="exposureShow">
@@ -77,8 +79,8 @@ const SetExposure = () => {
                 id="exposureHide"
                 type="radio"
                 name="group1"
-                value="exposureHide"
-                checked={exposureClicked.selectValue === 'exposureHide'}
+                value="미노출"
+                checked={exposureClicked.selectValue === '미노출'}
                 onChange={exposureChange}
               />
               <label for="exposureHide">
@@ -90,8 +92,8 @@ const SetExposure = () => {
                 id="exposureSetting"
                 type="radio"
                 name="group1"
-                value="exposureSetting"
-                checked={exposureClicked.selectValue === 'exposureSetting'}
+                value="노출 기간 설정"
+                checked={exposureClicked.selectValue === '노출 기간 설정'}
                 onChange={exposureChange}
               />
               <label for="exposureSetting">

@@ -1,14 +1,9 @@
 import React, { useState } from 'react';
+import ToggleButton from 'react-toggle-button';
 import styled from 'styled-components';
 
-const SetPickup = () => {
-  const [isCatchToogle, setIsCatchToogle] = useState(true);
-
-  const DeliveryBoxDetail = styled.div`
-    padding-top: 20px;
-    padding-bottom: 20px;
-    padding-left: 20px;
-  `;
+const SetProductBenefitContainer = () => {
+  const [productBenefit, setProductBenefit] = useState(true);
 
   const ToogleBtn = styled.input`
     display: none;
@@ -20,17 +15,16 @@ const SetPickup = () => {
       background-color: #7b68ee;
     }
   `;
-
   const Label = styled.label`
     position: relative;
     display: block;
+    margin-left: 20px;
     height: 26px;
     width: 60px;
     border-radius: 50px;
     background-color: gray;
     cursor: pointer;
   `;
-
   const ToogleBall = styled.div`
     position: absolute;
     cursor: pointer;
@@ -45,24 +39,23 @@ const SetPickup = () => {
       background-color: #0000cd;
     }
   `;
-  console.log(isCatchToogle);
+  console.log('마일리지 적립 :', productBenefit);
   return (
-    <DeliveryBoxDetail>
-      <div>
-        <ToogleBtn
-          type="checkbox"
-          checked={isCatchToogle}
-          value={isCatchToogle}
-          onChange={value => {
-            setIsCatchToogle(e => !e);
-          }}
-          id="switchPickupInput"
-        />
-        <Label htmlFor="switchPickupInput" className="switchLabel">
-          <ToogleBall className="ball"></ToogleBall>
-        </Label>
-      </div>
-    </DeliveryBoxDetail>
+    <div style={{ marginTop: '10px' }}>
+      <ToogleBtn
+        type="checkbox"
+        checked={productBenefit}
+        value={productBenefit}
+        onChange={value => {
+          setProductBenefit(e => !e);
+        }}
+        id="switch-benefit"
+      />
+      <Label htmlFor="switch-benefit" className="switchLabel">
+        <ToogleBall className="ball"></ToogleBall>
+      </Label>
+    </div>
   );
 };
-export default SetPickup;
+
+export default SetProductBenefitContainer;

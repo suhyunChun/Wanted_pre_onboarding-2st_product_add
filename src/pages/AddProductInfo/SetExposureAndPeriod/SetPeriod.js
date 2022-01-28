@@ -9,7 +9,7 @@ const SetPeriod = () => {
   const [periodStartDate, setPeriodStartDate] = useState([null, null]);
   const [periodLastDate, setPeriodLastDate] = useState([null, null]);
   const [periodClicked, setPeriodClicked] = useState({
-    selectValue: 'periodShow',
+    selectValue: '제한 없음',
   });
   const [periodsData, setPeriodData] = useState(`상품 판매 기한 : 제한 없음`);
   const Container = styled.div`
@@ -51,6 +51,8 @@ const SetPeriod = () => {
     });
   };
   console.log(periodsData);
+  console.log(`시작 날짜: ${periodStartDate}`);
+  console.log(`마지막 날짜: ${periodLastDate}`);
   return (
     <Container>
       <ContainerIndex>
@@ -61,8 +63,8 @@ const SetPeriod = () => {
                 id="periodShow"
                 type="radio"
                 name="group2"
-                value="periodShow"
-                checked={periodClicked.selectValue === 'periodShow'}
+                value="제한 없음"
+                checked={periodClicked.selectValue === '제한 없음'}
                 onChange={PeriodChange}
               />
               <label for="periodShow">
@@ -75,8 +77,8 @@ const SetPeriod = () => {
                 id="periodHide"
                 type="radio"
                 name="group2"
-                value="periodHide"
-                checked={periodClicked.selectValue === 'periodHide'}
+                value="미판매"
+                checked={periodClicked.selectValue === '미판매'}
                 onChange={PeriodChange}
               />
               <label for="periodHide">
@@ -88,8 +90,8 @@ const SetPeriod = () => {
                 id="periodSetting"
                 type="radio"
                 name="group2"
-                value="periodSetting"
-                checked={periodClicked.selectValue === 'periodSetting'}
+                value="판매 기간 설정"
+                checked={periodClicked.selectValue === '판매 기간 설정'}
                 onChange={PeriodChange}
               />
               <label for="periodSetting">

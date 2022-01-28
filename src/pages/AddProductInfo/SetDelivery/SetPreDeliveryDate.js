@@ -78,6 +78,11 @@ const SetPreDeliveryDate = () => {
     }
   `;
   console.log(isToogle);
+  console.log(`주문시간: ${deliveryStartTime}`);
+  console.log(`주문 마감 시간: ${deliveryLastTime}`);
+  console.log(`새벽 배송: ${deliveryMorning}`);
+  console.log(`일반 배송: ${deliveryNormal}`);
+
   return (
     <DeliveryBox>
       <DeliveryTimeBox>

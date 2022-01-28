@@ -45,7 +45,6 @@ const UploadImageFile = ({ title, imgArray }) => {
   `;
   return (
     <Uploadimagecontainer>
-      <UploadImageTitle>{title}</UploadImageTitle>
       <UploadImageInfo>
         <UploadImageBtn>
           <input

@@ -5,15 +5,13 @@ import { TextField } from '@mui/material';
 import DateTimePicker from '@mui/lab/DateTimePicker';
 import styled from 'styled-components';
 
-const SetExposure = () => {
-  const [exposureStartDate, setExposureStartDate] = useState([null, null]);
-  const [exposureLastDate, setExposureLastDate] = useState([null, null]);
-  const [exposureClicked, setExposureClicked] = useState({
-    selectValue: 'exposureShow',
+const SetPeriod = () => {
+  const [periodStartDate, setPeriodStartDate] = useState([null, null]);
+  const [periodLastDate, setPeriodLastDate] = useState([null, null]);
+  const [periodClicked, setPeriodClicked] = useState({
+    selectValue: '제한 없음',
   });
-  const [exposureData, setExposureData] =
-    useState(`상품 판매 기한 : 제한 없음`);
-
+  const [periodsData, setPeriodData] = useState(`상품 판매 기한 : 제한 없음`);
   const Container = styled.div`
     display: flex;
     justify-content: center;
@@ -22,18 +20,12 @@ const SetExposure = () => {
   const ContainerIndex = styled.div`
     display: flex;
   `;
-  const ContainerTitle = styled.div`
-    font-size: 20px;
-    font-weight: 600;
-    padding: 25px 20px;
-    border: 1px solid #cecece;
-  `;
-  const ContainerDetail2 = styled.div`
+
+  const ContainerDetail = styled.div`
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     justify-content: center;
-    border: 1px solid #cecece;
     padding: 20px 30px;
   `;
   const Span = styled.span`
@@ -52,60 +44,58 @@ const SetExposure = () => {
     margin: 0 16px;
   `;
 
-  const exposureChange = e => {
-    setExposureData(`상품 노출 기한 : ${e.target.value}`);
-    setExposureClicked({
+  const PeriodChange = e => {
+    setPeriodData(`상품 판매 기한 : ${e.target.value}`);
+    setPeriodClicked({
       selectValue: e.target.value,
     });
   };
-
-  console.log(exposureStartDate);
-  console.log(exposureLastDate);
-  console.log(exposureData);
+  console.log(periodsData);
+  console.log(`시작 날짜: ${periodStartDate}`);
+  console.log(`마지막 날짜: ${periodLastDate}`);
   return (
     <Container>
       <ContainerIndex>
-        <ContainerTitle>상품 노출 기한</ContainerTitle>
-        <ContainerDetail2>
-          <fieldset id="group1">
+        <ContainerDetail>
+          <fieldset id="group2">
             <div>
               <input
-                id="exposureShow"
+                id="periodShow"
                 type="radio"
-                name="group1"
-                value="exposureShow"
-                checked={exposureClicked.selectValue === 'exposureShow'}
-                onChange={exposureChange}
+                name="group2"
+                value="제한 없음"
+                checked={periodClicked.selectValue === '제한 없음'}
+                onChange={PeriodChange}
               />
-              <label for="exposureShow">
+              <label for="periodShow">
                 <Span>제한 없음</Span>
               </label>
             </div>
 
             <div>
               <input
-                id="exposureHide"
+                id="periodHide"
                 type="radio"
-                name="group1"
-                value="exposureHide"
-                checked={exposureClicked.selectValue === 'exposureHide'}
-                onChange={exposureChange}
+                name="group2"
+                value="미판매"
+                checked={periodClicked.selectValue === '미판매'}
+                onChange={PeriodChange}
               />
-              <label for="exposureHide">
-                <Span>미노출</Span>
+              <label for="periodHide">
+                <Span>미판매</Span>
               </label>
             </div>
             <div>
               <input
-                id="exposureSetting"
+                id="periodSetting"
                 type="radio"
-                name="group1"
-                value="exposureSetting"
-                checked={exposureClicked.selectValue === 'exposureSetting'}
-                onChange={exposureChange}
+                name="group2"
+                value="판매 기간 설정"
+                checked={periodClicked.selectValue === '판매 기간 설정'}
+                onChange={PeriodChange}
               />
-              <label for="exposureSetting">
-                <Span>노출 기간 설정</Span>
+              <label for="periodSetting">
+                <Span>판매 기간 설정</Span>
               </label>
             </div>
           </fieldset>
@@ -116,31 +106,29 @@ const SetExposure = () => {
                 renderInput={props => <TextField {...props} />}
                 label="시작 날짜"
                 inputFormat={'yyyy.MM.dd hh:mm'}
-                value={exposureStartDate}
+                value={periodStartDate}
                 onChange={newValue => {
-                  setExposureStartDate(newValue);
+                  setPeriodStartDate(newValue);
                 }}
               />
             </LocalizationProvider>
-
             <InsideDate>~</InsideDate>
-
             <LocalizationProvider dateAdapter={AdapterDateFns}>
               <DateTimePicker
                 renderInput={props => <TextField {...props} />}
                 label="마지막 날짜"
                 inputFormat={'yyyy.MM.dd hh:mm'}
-                value={exposureLastDate}
+                value={periodLastDate}
                 onChange={newValue => {
-                  setExposureLastDate(newValue);
+                  setPeriodLastDate(newValue);
                 }}
               />
             </LocalizationProvider>
           </ContainerDate>
-        </ContainerDetail2>
+        </ContainerDetail>
       </ContainerIndex>
     </Container>
   );
 };
 
-export default SetExposure;
+export default SetPeriod;

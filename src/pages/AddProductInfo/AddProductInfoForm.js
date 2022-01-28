@@ -38,7 +38,7 @@ const AddProductInfoForm = ({ header, categories, children }) => {
             return (
               <ContentContainer>
                 <CategoryContainer>{category}</CategoryContainer>
-                <ContentForm>{children}</ContentForm>
+                <ContentForm></ContentForm>
               </ContentContainer>
             );
           })}

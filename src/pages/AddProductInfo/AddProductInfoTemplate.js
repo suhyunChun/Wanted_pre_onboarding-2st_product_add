@@ -1,15 +1,12 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import AddProductInfoForm from './AddProductInfoForm';
-import SetExposure from './SetExposure';
-import SetPeriod from './SetPeriod';
-import SetProductDelivery from './SetProductDelivery';
 
 const AddProductInfoTemplate = () => {
   const [addProductInfoList, setAddProductInfoList] = useState([
     {
       header: '노출 기간 판매 설정',
-      categories: [<SetExposure />, <SetPeriod />],
+      categories: ['상품 노출 기한', '상품 판매 기한'],
     },
     {
       header: '상품 기본 정보',
@@ -29,7 +26,11 @@ const AddProductInfoTemplate = () => {
     { header: '상품 정보 고시', categories: [] },
     {
       header: '상품 배송 설정',
-      categories: [<SetProductDelivery />],
+      categories: [
+        '사용자 배송일 출발일 지정',
+        '방문 수령',
+        '선 주문 예약 배송',
+      ],
     },
     { header: '상품 혜택 허용 설정', categories: ['마일리지 적립'] },
     { header: '기타', categories: ['감사 카드 제공'] },

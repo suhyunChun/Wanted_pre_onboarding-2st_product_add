@@ -5,7 +5,7 @@ const UploadImageFile = ({ sort }) => {
   const [tmpArr, setTmpArr] = useState([]);
 
   const Uploadimagecontainer = styled.div`
-    border: 1px solid lightgray;
+    border: 1px solid white;
     display: flex;
     width: 800px;
     flex-direction: column;
@@ -53,26 +53,30 @@ const UploadImageFile = ({ sort }) => {
             style={{ width: '0%' }}
             type="file"
             accept="image/*"
-            onChange={e => setTmpArr([e.target.files[0].name].concat(tmpArr))}
+            onChange={e => {
+              setTmpArr([e.target.files[0].name].concat(tmpArr));
+              console.log('업로드 된 이미지 :', e.target.files[0].name);
+            }}
           />
           + 이미지 추가
         </UploadImageBtn>
         <ImageList>
-          {tmpArr.map(i => (
-            <div
-              onClick={e => {
-                setTmpArr(tmpArr.filter(e => e !== i));
-              }}
-              style={{
-                fontSize: '16px',
-                overflow: 'hidden',
-                textOverflow: 'ellipsis',
-                marginBottom: '10px',
-              }}
-            >
-              {i} <CancleBtn> X </CancleBtn>
-            </div>
-          ))}
+          {tmpArr &&
+            tmpArr.map(i => (
+              <div
+                onClick={e => {
+                  setTmpArr(tmpArr.filter(e => e !== i));
+                }}
+                style={{
+                  fontSize: '16px',
+                  overflow: 'hidden',
+                  textOverflow: 'ellipsis',
+                  marginBottom: '10px',
+                }}
+              >
+                {i} <CancleBtn> X </CancleBtn>
+              </div>
+            ))}
         </ImageList>
       </UploadImageInfo>
     </Uploadimagecontainer>

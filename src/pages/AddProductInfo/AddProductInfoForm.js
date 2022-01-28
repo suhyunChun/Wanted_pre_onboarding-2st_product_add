@@ -1,13 +1,18 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import ContentForm from './ContentForm';
+import SetDefaultContainerInfo from './SetDefaultContainerInfo/SetDefaultContainerInfo';
 
 const AddProductInfoForm = ({ header, categories }) => {
+  const [imgArray, setImgArray] = useState([]);
+
   return (
     <Container>
       <Header>{header}</Header>
       {categories.length === 0 ? (
-        <></>
+        <ContentContainer>
+          <SetDefaultContainerInfo header={header} />
+        </ContentContainer>
       ) : (
         categories.map((category, index) => {
           return (
@@ -23,8 +28,10 @@ const AddProductInfoForm = ({ header, categories }) => {
 };
 
 const Container = styled.div`
+  max-width: 900px;
+  margin: 0px 200px;
   border: 1px solid #cecece;
-  margin-bottom: 100px;
+  border-top: none;
 `;
 
 const Header = styled.header`

@@ -18,7 +18,7 @@ const OptionSet = ({ id, arrayOptionSet, setArrayOptionSet }) => {
 
   const clickShowAddOption = () => {
     setOptionAddClickCount(optionAddClickCount + 1);
-    setArrayOption(arrayOption.concat([optionAddClickCount + 1]));
+    setArrayOption(arrayOption.concat([{ id: optionAddClickCount + 1 }]));
   };
 
   return (
@@ -34,7 +34,7 @@ const OptionSet = ({ id, arrayOptionSet, setArrayOptionSet }) => {
           return (
             <Option
               key={i}
-              id={array}
+              id={array.id}
               arrayOption={arrayOption}
               setArrayOption={setArrayOption}
             />

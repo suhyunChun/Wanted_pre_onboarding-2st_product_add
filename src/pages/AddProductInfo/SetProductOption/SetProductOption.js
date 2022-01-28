@@ -4,13 +4,17 @@ import OptionSet from './OptionSet';
 
 const SetProductOption = () => {
   const [arrayOptionSet, setArrayOptionSet] = useState([]);
-  // const [optionSetAddClickCount, setOptionSetAddClickCount] = useState(0);
+  const [optionSetAddClickCount, setOptionSetAddClickCount] = useState(0);
 
   const clickShowAddOptionSet = () => {
-    // setOptionSetAddClickCount(optionSetAddClickCount + 1);
-    const nextId = arrayOptionSet.length + 1;
-    console.log(arrayOptionSet.concat([nextId]));
+    setOptionSetAddClickCount(optionSetAddClickCount + 1);
+    console.log(optionSetAddClickCount);
+    setArrayOptionSet(arrayOptionSet.concat([optionSetAddClickCount + 1]));
+    console.log(arrayOptionSet);
+
+    /* const nextId = arrayOptionSet.length + 1;
     setArrayOptionSet(arrayOptionSet.concat([nextId]));
+    console.log(arrayOptionSet.concat([nextId])); */
   };
 
   return (

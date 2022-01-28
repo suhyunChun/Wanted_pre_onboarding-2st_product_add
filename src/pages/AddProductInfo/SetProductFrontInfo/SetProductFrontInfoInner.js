@@ -8,10 +8,6 @@ const SetProductFrontInfoInner = ({
   setTotalProductList,
   totalProductList,
 }) => {
-  const [copiedProductList, setCopiedProductList] = useState([
-    ...productListOfEachItem,
-  ]);
-
   const FrontInfoInner = styled.div`
     padding: 30px;
     background-color: white;
@@ -76,6 +72,9 @@ const SetProductFrontInfoInner = ({
     flex-direction: column;
     justify-content: space-between;
   `;
+  const [copiedProductList, setCopiedProductList] = useState([
+    ...productListOfEachItem,
+  ]);
 
   const AddQuestionInFrontINformation = e => {
     let tmpProductList = [...copiedProductList];
@@ -102,13 +101,6 @@ const SetProductFrontInfoInner = ({
     console.log(tmpTotalProductList);
     setCopiedProductList(tmpProdcutListOfEachItem);
     setTotalProductList(tmpTotalProductList);
-    /*let tmpProductListOfEachItem = [...productListOfEachItem];
-    console.log(tmpProductListOfEachItem, copiedProductList);
-    tmpProductListOfEachItem.splice(idx, 1);
-    console.log(copiedProductList);
-    let tmpTotalProductList = [...totalProductList];
-    tmpTotalProductList[numberOfProduct] = tmpProductListOfEachItem;
-    setTotalProductList(tmpTotalProductList);*/
   };
 
   const storeValueInFrontInfo = (event, index) => {

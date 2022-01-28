@@ -1,14 +1,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import AddProductInfoForm from './AddProductInfoForm';
-import SetProductImage from './SetProductImage';
-import SetProductBenefit from './SetProductBenefit';
-import SetProductEtc from './SetProductEtc';
-import SetPeriod from './SetExposureAndPeriod/SetPeriod';
-import SetExposure from './SetExposureAndPeriod/SetExposure';
-import SetProductDelivery from './SetProductDelivery';
-import SetProductFrontInfoBox from './SetProductFrontInfo/SetProductFrontInfoBox';
-import ToggleButton from '../../utils/ToggleButton';
+
 const AddProductInfoTemplate = () => {
   const [introImage, setIntroImg] = useState([]);
   const [recommendImage, setRecommendImage] = useState([]);

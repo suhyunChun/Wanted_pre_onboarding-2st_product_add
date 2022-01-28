@@ -19,20 +19,20 @@ const AdditonOptionProduct = ({
     const addtionOptionName = e.target.value;
     console.log(addtionOptionName);
     // setAddtionOptionName(e.target.value);
-    const b = additonOptionProductInfo.map(info => {
+    additonOptionProductInfo.map(info => {
       if (info.id === id) return (info.addtionOptionName = addtionOptionName);
     });
     console.log(additonOptionProductInfo);
-    setAddtionOptionProductInfo([...additonOptionProductInfo]);
+    // setAddtionOptionProductInfo([...additonOptionProductInfo]);
   };
 
   const addtionOptionPriceInfoAdd = e => {
     const addtionOptionPrice = e.target.value;
-    const b = additonOptionProductInfo.map(info => {
+    additonOptionProductInfo.map(info => {
       if (info.id === id) return (info.addtionOptionPrice = addtionOptionPrice);
     });
     console.log(additonOptionProductInfo);
-    setAddtionOptionProductInfo([...additonOptionProductInfo]);
+    // setAddtionOptionProductInfo([...additonOptionProductInfo]);
   };
 
   return (

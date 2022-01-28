@@ -6,7 +6,6 @@ import SetProductBenefit from './SetProductBenefit';
 import SetProductEtc from './SetProductEtc';
 import SetPeriod from './SetExposureAndPeriod/SetPeriod';
 import SetExposure from './SetExposureAndPeriod/SetExposure';
-import SetProductDelivery from './SetProductDelivery';
 import SetProductFrontInfoBox from './SetProductFrontInfo/SetProductFrontInfoBox';
 import ToggleButton from '../../utils/ToggleButton';
 const AddProductInfoTemplate = () => {

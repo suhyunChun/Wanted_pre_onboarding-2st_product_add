@@ -17,7 +17,7 @@ const SetProductOption = () => {
     setArrayOptionSet(arrayOptionSet.concat([nextId]));
     console.log(arrayOptionSet.concat([nextId])); */
   };
-
+  console.log('a');
   return (
     <ProductOptionContainer>
       <Header>

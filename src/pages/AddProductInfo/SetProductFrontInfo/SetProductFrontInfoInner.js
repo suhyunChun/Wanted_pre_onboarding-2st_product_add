@@ -48,7 +48,15 @@ const SetProductFrontInfoInner = ({
   const handleDeletingFrontInfoForm = e => {
     let tmpTotalProductList = [...totalProductList];
     tmpTotalProductList.splice(e.target.name, 1);
+    setTotalProductList(tmpTotalProductList);
+  };
 
+  const handleDeletionQuestion = e => {
+    let idx = e.target.name;
+    let tmpProductListOfEachItem = [...productListOfEachItem];
+    tmpProductListOfEachItem.splice(idx, 1);
+    let tmpTotalProductList = [...totalProductList];
+    tmpTotalProductList[numberOfProduct] = tmpProductListOfEachItem;
     console.log(tmpTotalProductList);
     setTotalProductList(tmpTotalProductList);
   };
@@ -62,7 +70,6 @@ const SetProductFrontInfoInner = ({
         tmpProductList[i].answer = value;
       }
     }
-
     let tmpList = [...totalProductList];
     tmpList[event.target.numberOfProduct] = tmpProductList;
     setTotalProductList(tmpList);
@@ -80,7 +87,7 @@ const SetProductFrontInfoInner = ({
           삭제{' '}
         </FrontInfoCancleBtn>
       </FrontInfoTitle>
-      {copiedProductList.map(item => (
+      {copiedProductList.map((item, index) => (
         <>
           {item.question !== '' ? (
             <>
@@ -97,7 +104,7 @@ const SetProductFrontInfoInner = ({
             <>
               <input
                 placeholder="항목 제목 자유 입력"
-                name="question"
+                name={item.question}
                 value={item.question}
                 onChange={storeValueInFrontInfo}
               />{' '}
@@ -107,7 +114,9 @@ const SetProductFrontInfoInner = ({
                 placeholder="내용을 입력해주세요."
                 onChange={storeValueInFrontInfo}
               />
-              <button>삭제</button>
+              <button name={index} onClick={handleDeletionQuestion}>
+                삭제
+              </button>
             </>
           )}
         </>

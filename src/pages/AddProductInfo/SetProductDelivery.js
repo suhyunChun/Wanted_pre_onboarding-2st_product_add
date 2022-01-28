@@ -105,7 +105,6 @@ const SetProductDelivery = () => {
               id={'test'}
             />
             <Label htmlFor={'test'}>
-              {{ isToogle } ? <div>test</div> : <div>test2</div>}
               <ToogleBall className="ball"></ToogleBall>
             </Label>
           </div>

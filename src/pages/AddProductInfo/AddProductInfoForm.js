@@ -1,69 +1,55 @@
 import React from 'react';
 import styled from 'styled-components';
+import ContentForm from './ContentForm';
 
-const AddProductInfoForm = ({ header, categories, children }) => {
-  // 그래서 여기서 props로 넘겨받은 header에 제목 넣어주고
-  // categories 개수만큼 한번 더 map돌리고 각 세부 기능에 들어가는 내용들은
-  // children으로 받아서 Cotent 영역에 넣어줘서 동적랜더링되도록 로직을 짜봤는데
-  // 이게 제대로 될지는 모르겠네요ㅎㅎ
-  // example
-  // 예를 들어서
-  // <AddProductInfoForm> => 얘한테 children으로 넘겨줘서 form style 적용받게 할려고 하는데 될런지 모르겠네요
-  //   content JSX => 우리가 짠 이 넵넵
-  // </AddProductInfoForm>
-
-  // 노출 및 판매 기간 설정', categories: ['상품 노출 기한', '상품 판매 기한']},
-  //         { header: '상품 기본 정보', categories: ['카테고리', '필터 태그', '상품명', '상품구성소개 정보*', '상품 썸네일', '상품 대표 이미지', '상품 총 재고 *']},
-  //         { header: '상품 옵션',
-
-  const checkCurrentHeader = () => {
-    switch (header) {
-      case '노출 및 판매 기간 설정':
-        <TestOne />;
-        break;
-      case '불라 불라':
-        <TestTwo />;
-        break;
-      default:
-        break;
-    }
-  };
-
+const AddProductInfoForm = ({ header, categories }) => {
   return (
     <Container>
-      <Header>{header}</Header>{' '}
-      {categories.length === 0
-        ? checkCurrentHeader()
-        : categories.map((category, index) => {
-            return (
-              <ContentContainer>
-                <CategoryContainer>{category}</CategoryContainer>
-                <ContentForm></ContentForm>
-              </ContentContainer>
-            );
-          })}
+      <Header>{header}</Header>
+      {categories.length === 0 ? (
+        <></>
+      ) : (
+        categories.map((category, index) => {
+          return (
+            <ContentContainer key={index}>
+              <CategoryContainer>{category}</CategoryContainer>
+              <ContentForm header={header} category={category} />
+            </ContentContainer>
+          );
+        })
+      )}
     </Container>
   );
 };
 
-const TestOne = () => {
-  return (
-    <>TestOneTestOneTestOneTestOneTestOneTestOneTestOneTestOneTestOneTestOne</>
-  );
-};
+const Container = styled.div`
+  border: 1px solid #cecece;
+  margin-bottom: 100px;
+`;
 
-const TestTwo = () => {
-  return <>😑😑😑😑😑😑😑😑😑😑</>;
-};
+const Header = styled.header`
+  font-size: 18px;
+  font-weight: 600;
+  padding: 20px 20px;
+  border-bottom: 1px solid #cecece;
+`;
 
-const Container = styled.div``;
+const ContentContainer = styled.div`
+  display: flex;
+  border-bottom: 1px solid #cecece;
 
-const Header = styled.header``;
+  &:last-child {
+    border-bottom: none;
+  }
+`;
 
-const ContentContainer = styled.div``;
-
-const CategoryContainer = styled.div``;
-
-const ContentForm = styled.div``;
+const CategoryContainer = styled.div`
+  min-width: 150px;
+  max-width: 150px;
+  font-size: 18px;
+  padding: 25px 20px;
+  background-color: #f3efef;
+  border-right: 2px solid #cecece;
+`;
 
 export default AddProductInfoForm;

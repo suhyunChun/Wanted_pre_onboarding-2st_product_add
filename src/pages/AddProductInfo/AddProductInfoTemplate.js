@@ -11,7 +11,7 @@ const AddProductInfoTemplate = () => {
     {
       header: '상품 기본 정보',
       categories: [
-        '카테고리',
+        '카테고리 *',
         '필터 태그',
         '상품명',
         '상품 구성 소개 정보 *',

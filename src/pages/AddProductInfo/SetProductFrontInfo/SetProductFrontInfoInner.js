@@ -20,16 +20,56 @@ const SetProductFrontInfoInner = ({
   const FrontInfoTitle = styled.div`
     width: 100%;
     display: flex;
+    font-size: 20px;
+    font-weight: 900;
     align-items: center;
     justify-content: space-between;
+    padding: 10px;
   `;
   const FrontInfoCancleBtn = styled.button`
     padding: 8px;
     border-radius: 8px;
+    width: 60px;
+    background-color: white;
+    border: 1px solid lightgrey;
+  `;
+  const FrontInfoInfoDeleteBtn = styled.button`
+    padding: 8px;
+    border-radius: 8px;
+    width: 70px;
+    height: 40px;
+    color: red;
+    background-color: white;
+    border: 1px solid lightgrey;
+  `;
+  const FrontInfoInfoAddBtn = styled.button`
+    padding: 8px;
+    border-radius: 8px;
+    width: 140px;
+    height: 40px;
+    color: darkblue;
+    margin: 10px;
     background-color: white;
     border: 1px solid lightgrey;
   `;
   const FrontInformation = styled.div`
+    div {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px;
+    }
+    input {
+      width: 380px;
+      height: 40px;
+      border-radius: 5px;
+      background-color: transparent;
+      border: 1px solid lightgrey;
+    }
+    .addedQuestion {
+      width: 200px;
+    }
     display: flex;
     width: 100%;
     flex-direction: column;
@@ -87,45 +127,53 @@ const SetProductFrontInfoInner = ({
           삭제{' '}
         </FrontInfoCancleBtn>
       </FrontInfoTitle>
-      {copiedProductList.map((item, index) => (
-        <>
-          {index <= 4 ? (
-            <>
-              {' '}
-              {item.question}
-              <input
-                name={item.question}
-                value={item.answer}
-                placeholder={item.question + '을 입력을 해주세요'}
-                onChange={event => storeValueInFrontInfo(event, index)}
-              />
-            </>
-          ) : (
-            <>
-              <input
-                className="addedQuestion"
-                placeholder="항목 제목 자유 입력"
-                name={item.question}
-                value={item.question}
-                onChange={event => storeValueInFrontInfo(event, index)}
-              />{' '}
-              <input
-                name={item.question}
-                value={item.answer}
-                placeholder="내용을 입력해주세요."
-                onChange={event => storeValueInFrontInfo(event, index)}
-              />
-              <button name={index} onClick={handleDeletionQuestion}>
-                삭제
-              </button>
-            </>
-          )}
-        </>
-      ))}
-      <button name={numberOfProduct} onClick={AddQuestionInFrontINformation}>
-        {' '}
-        +항목 추가
-      </button>
+      <FrontInformation>
+        {copiedProductList.map((item, index) => (
+          <>
+            {index <= 4 ? (
+              <div>
+                {' '}
+                {item.question}
+                <input
+                  name={item.question}
+                  value={item.answer}
+                  placeholder={item.question + '을 입력을 해주세요'}
+                  onInput={event => storeValueInFrontInfo(event, index)}
+                />
+              </div>
+            ) : (
+              <div>
+                <input
+                  className="addedQuestion"
+                  placeholder="항목 제목 자유 입력"
+                  name={item.question}
+                  value={item.question}
+                  onInput={event => storeValueInFrontInfo(event, index)}
+                />{' '}
+                <input
+                  name={item.question}
+                  value={item.answer}
+                  placeholder="내용을 입력해주세요."
+                  onInput={event => storeValueInFrontInfo(event, index)}
+                />
+                <FrontInfoInfoDeleteBtn
+                  name={index}
+                  onClick={handleDeletionQuestion}
+                >
+                  삭제
+                </FrontInfoInfoDeleteBtn>
+              </div>
+            )}
+          </>
+        ))}
+        <FrontInfoInfoAddBtn
+          name={numberOfProduct}
+          onClick={AddQuestionInFrontINformation}
+        >
+          {' '}
+          +항목 추가
+        </FrontInfoInfoAddBtn>
+      </FrontInformation>
     </FrontInfoInner>
   );
 };

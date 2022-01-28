@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import ToggleButton from 'react-toggle-button';
 import styled from 'styled-components';
-
+import AddProductInfoForm from './AddProductInfoForm';
 const SetProductEtc = () => {
   const [productThanksCard, setProductThanksCard] = useState(false);
 
@@ -23,15 +23,16 @@ const SetProductEtc = () => {
   `;
 
   return (
-    <EtcConatiner>
-      <EtcTitle>감사카드 제공</EtcTitle>
-      <ToggleButton
-        value={productThanksCard}
-        onToggle={value => {
-          setProductThanksCard(e => !e);
-        }}
-      />
-    </EtcConatiner>
+    <AddProductInfoForm>
+      <EtcConatiner>
+        <ToggleButton
+          value={productThanksCard}
+          onToggle={value => {
+            setProductThanksCard(e => !e);
+          }}
+        />
+      </EtcConatiner>
+    </AddProductInfoForm>
   );
 };
 

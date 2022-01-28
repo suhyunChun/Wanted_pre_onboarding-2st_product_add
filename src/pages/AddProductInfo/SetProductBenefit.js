@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import ToggleButton from 'react-toggle-button';
 import styled from 'styled-components';
-
+import AddProductInfoForm from './AddProductInfoForm';
 const SetProductBenefit = () => {
   const [productBenefit, setProductBenefit] = useState(true);
 
@@ -22,15 +22,16 @@ const SetProductBenefit = () => {
   `;
 
   return (
-    <BenefitConatiner>
-      <BenefitTitle>마일리지 적립</BenefitTitle>
-      <ToggleButton
-        value={productBenefit}
-        onToggle={value => {
-          setProductBenefit(e => !e);
-        }}
-      />
-    </BenefitConatiner>
+    <AddProductInfoForm>
+      <BenefitConatiner>
+        <ToggleButton
+          value={productBenefit}
+          onToggle={value => {
+            setProductBenefit(e => !e);
+          }}
+        />
+      </BenefitConatiner>
+    </AddProductInfoForm>
   );
 };
 

@@ -4,14 +4,19 @@ import AddProductInfoForm from './AddProductInfoForm';
 import SetProductImage from './SetProductImage';
 import SetProductBenefit from './SetProductBenefit';
 import SetProductEtc from './SetProductEtc';
-
+import SetExposure from './SetExposure';
+import SetPeriod from './SetPeriod';
+import SetProductDelivery from './SetProductDelivery';
+import SetProductFrontInfoBox from './SetProductFrontInfo/SetProductFrontInfoBox';
+import ToggleButton from '../../utils/ToggleButton';
 const AddProductInfoTemplate = () => {
   const [introImage, setIntroImg] = useState([]);
   const [recommendImage, setRecommendImage] = useState([]);
+  const [init, Setinit] = useState(false);
   const [addProductInfoList, setAddProductInfoList] = useState([
     {
-      header: '노출 및 판매 기간 설정',
-      categories: ['상품 노출 기한', '상품 판매 기한'],
+      header: '노출 기간 판매 설정',
+      categories: [<SetExposure />, <SetPeriod />],
     },
     {
       header: '상품 기본 정보',
@@ -27,32 +32,25 @@ const AddProductInfoTemplate = () => {
     },
     { header: '상품 옵션', categories: [] },
     {
-      header: (
-        <SetProductImage title="상품 소개 이미지" imgArray={introImage} />
-      ),
+      header: '상품 소개 이미지',
       categories: [],
     },
     {
-      header: (
-        <SetProductImage title="구매자 추천 이미지" imgArray={recommendImage} />
-      ),
+      header: '구매자 추천 이미지',
       categories: [],
     },
-    { header: '상품 정보 고시', categories: [] },
+    { header: '상품 정보 고시', categories: [<SetProductFrontInfoBox />] },
     {
       header: '상품 배송 설정',
-      categories: [
-        '사용자 배송일 출발일 지정',
-        '방문 수령',
-        '선 주문 예약 배송',
-      ],
+      categories: [<SetProductDelivery />],
     },
-    { header: '상품 혜택 허용 설정', categories: [<SetProductBenefit />] },
-    { header: '기타', categories: [<SetProductEtc />] },
+    { header: '상품 혜택 허용 설정', categories: ['마일리지 적립'] },
+    { header: '기타', categories: ['감사카드 제공'] },
   ]);
 
   return (
     <Container>
+      <img src="toggle_selected.png" />
       {addProductInfoList.map(({ header, categories }, index) => {
         return <AddProductInfoForm header={header} categories={categories} />;
       })}

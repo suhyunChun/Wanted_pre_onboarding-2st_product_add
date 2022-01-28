@@ -56,7 +56,7 @@ const SetPickup = () => {
           onChange={value => {
             setIsCatchToogle(e => !e);
           }}
-          id="switcPickuphInput"
+          id="switchPickupInput"
         />
         <Label htmlFor="switchPickupInput" className="switchLabel">
           <ToogleBall className="ball"></ToogleBall>

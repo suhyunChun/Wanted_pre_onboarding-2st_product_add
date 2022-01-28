@@ -6,7 +6,6 @@ import SetProductBenefit from './SetProductBenefit';
 import SetProductEtc from './SetProductEtc';
 import SetPeriod from './SetExposureAndPeriod/SetPeriod';
 import SetExposure from './SetExposureAndPeriod/SetExposure';
-import SetProductDelivery from './SetProductDelivery';
 import SetProductFrontInfoBox from './SetProductFrontInfo/SetProductFrontInfoBox';
 import ToggleButton from '../../utils/ToggleButton';
 const AddProductInfoTemplate = () => {
@@ -16,7 +15,7 @@ const AddProductInfoTemplate = () => {
   const [addProductInfoList, setAddProductInfoList] = useState([
     {
       header: '노출 기간 판매 설정',
-      categories: [],
+      categories: ['상품 노출 기한', '상품 판매 기한'],
     },
     {
       header: '상품 기본 정보',

@@ -22,10 +22,18 @@ const SetProductFrontInfoBox = () => {
     padding: 30px;
   `;
 
-  const FrontInforAddingBtn = styled.button``;
+  const FrontInforAddingBtn = styled.button`
+    width: 100%;
+    margin-top: 30px;
+    height: 40px;
+    font-weight: 800;
+    font-size: 16px;
+    background-color: transparent;
+    border: 1px solid darkblue;
+    color: darkblue;
+  `;
 
   const addFormInFrontInfo = () => {
-    console.log('PRODUCT_LIST', productList);
     setTotalProductList(totalProductList.concat([productListFormat]));
     setNumberOfProduct(numberOfProduct + 1);
   };

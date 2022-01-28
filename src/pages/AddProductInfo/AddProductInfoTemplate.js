@@ -4,12 +4,8 @@ import AddProductInfoForm from './AddProductInfoForm';
 import SetProductImage from './SetProductImage';
 import SetProductBenefit from './SetProductBenefit';
 import SetProductEtc from './SetProductEtc';
-
 import SetPeriod from './SetExposureAndPeriod/SetPeriod';
 import SetExposure from './SetExposureAndPeriod/SetExposure';
-/*
-import SetExposure from './SetExposure';
-import SetPeriod from './SetPeriod';*/
 import SetProductDelivery from './SetProductDelivery';
 import SetProductFrontInfoBox from './SetProductFrontInfo/SetProductFrontInfoBox';
 import ToggleButton from '../../utils/ToggleButton';
@@ -20,7 +16,7 @@ const AddProductInfoTemplate = () => {
   const [addProductInfoList, setAddProductInfoList] = useState([
     {
       header: '노출 기간 판매 설정',
-      categories: [<SetExposure />, <SetPeriod />],
+      categories: [],
     },
     {
       header: '상품 기본 정보',
@@ -43,10 +39,10 @@ const AddProductInfoTemplate = () => {
       header: '구매자 추천 이미지',
       categories: [],
     },
-    { header: '상품 정보 고시', categories: [<SetProductFrontInfoBox />] },
+    { header: '상품 정보 고시', categories: [''] },
     {
       header: '상품 배송 설정',
-      categories: [<SetProductDelivery />],
+      categories: [],
     },
     { header: '상품 혜택 허용 설정', categories: ['마일리지 적립'] },
     { header: '기타', categories: ['감사카드 제공'] },

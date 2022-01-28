@@ -25,7 +25,6 @@ const SetProductFrontInfoBox = () => {
   const FrontInforAddingBtn = styled.button``;
 
   const addFormInFrontInfo = () => {
-    console.log('PRODUCT_LIST', productList);
     setTotalProductList(totalProductList.concat([productListFormat]));
     setNumberOfProduct(numberOfProduct + 1);
   };

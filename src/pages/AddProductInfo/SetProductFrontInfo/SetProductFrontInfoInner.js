@@ -60,15 +60,15 @@ const SetProductFrontInfoInner = ({
     console.log(tmpTotalProductList);
     setTotalProductList(tmpTotalProductList);
   };
-  const storeValueInFrontInfo = event => {
+  const storeValueInFrontInfo = (event, index) => {
     const target = event.target;
     const value = target.value;
     const name = target.name;
     let tmpProductList = [...copiedProductList];
-    for (let i = 0; i < tmpProductList.length; i++) {
-      if (tmpProductList[i].question === name) {
-        tmpProductList[i].answer = value;
-      }
+    if (target.className === 'addedQuestion') {
+      tmpProductList[index].question = value;
+    } else {
+      tmpProductList[index].answer = value;
     }
     let tmpList = [...totalProductList];
     tmpList[event.target.numberOfProduct] = tmpProductList;
@@ -89,7 +89,7 @@ const SetProductFrontInfoInner = ({
       </FrontInfoTitle>
       {copiedProductList.map((item, index) => (
         <>
-          {item.question !== '' ? (
+          {index <= 4 ? (
             <>
               {' '}
               {item.question}
@@ -97,22 +97,23 @@ const SetProductFrontInfoInner = ({
                 name={item.question}
                 value={item.answer}
                 placeholder={item.question + '을 입력을 해주세요'}
-                onChange={storeValueInFrontInfo}
+                onChange={event => storeValueInFrontInfo(event, index)}
               />
             </>
           ) : (
             <>
               <input
+                className="addedQuestion"
                 placeholder="항목 제목 자유 입력"
                 name={item.question}
                 value={item.question}
-                onChange={storeValueInFrontInfo}
+                onChange={event => storeValueInFrontInfo(event, index)}
               />{' '}
               <input
                 name={item.question}
                 value={item.answer}
                 placeholder="내용을 입력해주세요."
-                onChange={storeValueInFrontInfo}
+                onChange={event => storeValueInFrontInfo(event, index)}
               />
               <button name={index} onClick={handleDeletionQuestion}>
                 삭제

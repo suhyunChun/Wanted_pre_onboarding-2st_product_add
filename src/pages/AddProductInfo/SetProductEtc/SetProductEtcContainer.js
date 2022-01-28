@@ -50,14 +50,14 @@ function SetProductEtc() {
   `;
 
   return (
-    <div>
+    <div style={{ marginTop: '10px' }}>
       <ToogleBtn
         type="checkbox"
         checked={productThanksCard}
         value={productThanksCard}
         onChange={value => {
           setProductThanksCard(e => !e);
-          console.log(productThanksCard);
+          console.log('감사카드 제공', productThanksCard);
         }}
         id="switch-etc"
       />

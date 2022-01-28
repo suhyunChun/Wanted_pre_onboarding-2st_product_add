@@ -2,9 +2,10 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import Option from './Option';
 import DeleteBtn from './deleteBtnStyle';
+import uuid from 'react-uuid';
 
 const OptionSet = ({ id, arrayOptionSet, setArrayOptionSet }) => {
-  const [arrayOption, setArrayOption] = useState([0]);
+  const [arrayOption, setArrayOption] = useState([{ id: uuid() }]);
   const [optionAddClickCount, setOptionAddClickCount] = useState(0);
 
   const clickRemoveOptionSet = () => {
@@ -18,14 +19,12 @@ const OptionSet = ({ id, arrayOptionSet, setArrayOptionSet }) => {
 
   const clickShowAddOption = () => {
     setOptionAddClickCount(optionAddClickCount + 1);
-    setArrayOption(arrayOption.concat([{ id: optionAddClickCount + 1 }]));
+    setArrayOption(arrayOption.concat([{ id: uuid() }]));
   };
 
   return (
     <section>
-      <h1>옵션세트추가 성공</h1>
-      {id}
-      <DeleteBtn onClick={clickRemoveOptionSet}>옵션세트 삭제</DeleteBtn>
+      <DeleteBtn onClick={clickRemoveOptionSet}>삭제</DeleteBtn>
       <OptionSetContainer>
         <ImageAddContainer>
           <input type="file" accept="image/*" onInput={handleInputImage} />
@@ -40,16 +39,16 @@ const OptionSet = ({ id, arrayOptionSet, setArrayOptionSet }) => {
             />
           );
         })}
-        <button onClick={clickShowAddOption}>옵션추가</button>
+        <OptionAddBtn onClick={clickShowAddOption}>+ 옵션추가</OptionAddBtn>
       </OptionSetContainer>
     </section>
   );
 };
 
 const OptionSetContainer = styled.div`
-  width: 95%;
+  width: 100%;
   margin: 0 auto;
-  border: 2px solid blue;
+  border: 2px solid whitesmoke;
   display: flex;
   flex-direction: column;
 `;
@@ -59,8 +58,20 @@ const ImageAddContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: gray;
-  margin: 5px 5px;
+  background-color: whitesmoke;
+  margin: 5px 8px;
+`;
+
+const OptionAddBtn = styled.button`
+  width: 98%;
+  margin: 0 auto;
+  height: 70px;
+  padding: 10px 20px;
+  border-color: black;
+  border-radius: 4px;
+  background-color: white;
+  font-size: 19px;
+  font-weight: bold;
 `;
 
 export default OptionSet;

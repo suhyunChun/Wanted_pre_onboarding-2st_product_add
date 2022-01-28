@@ -42,10 +42,10 @@ const Option = ({ id, arrayOption, setArrayOption }) => {
   }, [normalPrice, realPrice]);
 
   return (
-    <div>
-      <DeleteBtn onClick={optionDelete}>옵션삭제</DeleteBtn>
+    <OptionLayOut>
+      <DeleteBtn onClick={optionDelete}>삭제</DeleteBtn>
       <div>
-        <input
+        <OptionNameInput
           placeholder="옵션명을 입력해 주세요. (필수)"
           style={{ width: '100%' }}
         />
@@ -59,7 +59,7 @@ const Option = ({ id, arrayOption, setArrayOption }) => {
               placeholder="상품 정상가 (필수)"
             />
             <span>원</span>
-            {discountRate > 0 && <p>{`${discountRate}%`}</p>}
+            {discountRate > 0 ? <p>{`${discountRate}%`}</p> : <p>할인율</p>}
             <input
               id="realPrice"
               type="number"
@@ -79,11 +79,6 @@ const Option = ({ id, arrayOption, setArrayOption }) => {
           </select>
         </OptionBottomContainer>
       </div>
-      <button onClick={additonOptionProductAddBtn}>+</button>
-      <span>추가 옵션 상품 추가</span>
-      <button onClick={() => console.log(additonOptionProductInfo)}>
-        데이터확인
-      </button>
       {additonOptionProductInfo.map(count => {
         return (
           <AdditonOptionProduct
@@ -94,19 +89,43 @@ const Option = ({ id, arrayOption, setArrayOption }) => {
           />
         );
       })}
-    </div>
+      <AdditonOptionProductAddBtn onClick={additonOptionProductAddBtn}>
+        +
+      </AdditonOptionProductAddBtn>
+      <span style={{ fontWeight: 'bold' }}>추가 옵션 상품 추가</span>
+    </OptionLayOut>
   );
 };
 
+const OptionLayOut = styled.div`
+  margin: 5px 8px;
+  border: 2px solid whitesmoke;
+  border-radius: 7px;
+`;
+
+const OptionNameInput = styled.input`
+  height: 50px;
+  border-radius: 4px;
+  font-size: 18px;
+`;
 const OptionBottomContainer = styled.div`
   display: flex;
   justify-content: space-evenly;
   align-items: center;
   & > form {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
+    width: 280px;
   }
+  & > form > input {
+    width: 70px;
+  }
+`;
+
+const AdditonOptionProductAddBtn = styled.button`
+  background-color: white;
+  padding: 5px 9px;
 `;
 
 export default Option;

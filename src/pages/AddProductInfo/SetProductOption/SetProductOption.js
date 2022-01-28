@@ -22,8 +22,9 @@ const SetProductOption = () => {
   return (
     <ProductOptionContainer>
       <Header>
-        <p>상품 옵션*</p>
-        <DeleteBtn onClick={clickShowAddOptionSet}>+옵션 세트 추가</DeleteBtn>
+        <OptionSetAddBtn onClick={clickShowAddOptionSet}>
+          +옵션 세트 추가
+        </OptionSetAddBtn>
       </Header>
       {arrayOptionSet.map((arrayOptionSetId, i) => {
         return (
@@ -40,15 +41,26 @@ const SetProductOption = () => {
 };
 
 const ProductOptionContainer = styled.div`
-  margin: 0 50px;
+  margin: 0 10px;
+  width: 100%;
 `;
 
 const Header = styled.header`
-  display: flex;
+  /* display: flex;
   justify-content: space-between;
+  align-items: center;
   & > p {
-    background-color: pink;
-  }
+    font-size: 1px;
+  } */
+`;
+
+const OptionSetAddBtn = styled.button`
+  border-color: blue;
+  border-radius: 4px;
+  background-color: white;
+  height: 50px;
+  padding: 10px 20px;
+  font-size: 18px;
 `;
 
 export default SetProductOption;

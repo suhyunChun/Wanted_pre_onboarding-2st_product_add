@@ -37,38 +37,48 @@ const AdditonOptionProduct = ({
 
   return (
     <AdditonOptionProductSection>
-      <div />
-      <input
-        placeholder="추가 옵션명(필수)"
-        onInput={addtionOptionNameInfoAdd}
-      />
-      <input
-        placeholder="추가 옵션 정상가(필수)"
-        onInput={addtionOptionPriceInfoAdd}
-      />
-      <span>원</span>
-      <DeleteBtn onClick={additionOptionProductDelete}>
-        추가옵션상품삭제
-      </DeleteBtn>
-      {id}
+      <section>
+        <div />
+        <input
+          placeholder="추가 옵션명(필수)"
+          onInput={addtionOptionNameInfoAdd}
+        />
+      </section>
+      <section>
+        <input
+          placeholder="추가 옵션 정상가(필수)"
+          onInput={addtionOptionPriceInfoAdd}
+        />
+        <span>원</span>
+      </section>
+      <DeleteBtn onClick={additionOptionProductDelete}>삭제</DeleteBtn>
     </AdditonOptionProductSection>
   );
 };
 
 const AdditonOptionProductSection = styled.section`
+  margin: 0 5px;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-evenly;
+  justify-content: space-between;
   align-items: center;
-  & > div {
+  & div {
     width: 30px;
     height: 30px;
     border: 2px solid gray;
     border-top-width: 0px;
     border-right-width: 0px;
     border-radius: 3px;
-    position: relative;
-    bottom: 11px;
+  }
+
+  & > section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  & input {
+    width: 250px;
+    height: 40px;
   }
 `;
 

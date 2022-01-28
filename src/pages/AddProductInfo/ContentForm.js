@@ -18,17 +18,10 @@ const ContentForm = ({ header, category }) => {
         return <SetDefaultProductEtc category={category} />;
       case '상품 혜택 허용 설정':
         return <SetDefaultProductBenefit category={category} />;
-      case '구매자 추천 이미지':
-        return <SetProductImage imgArray={recomArray} />;
-      case '상품 소개 이미지':
-        return <SetProductImage imgArray={imgArray} />;
-      case '상품 정보 고시':
-        return <SetDefaultProductFrontInfo category={category} />;
       case '노출 기간 판매 설정':
         return <SetDefaultExposureAndPeriod category={category} />;
       case '상품 기본 정보':
         return <SetDefaultProductInfo category={category} />;
-
       case '상품 배송 설정':
         return <SetDefaultDelivery category={category} />;
 

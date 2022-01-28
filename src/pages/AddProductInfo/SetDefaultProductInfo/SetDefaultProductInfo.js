@@ -28,8 +28,8 @@ const checkCurrentCategory = category => {
   }
 };
 
-const SetDefaultProductEtc = ({ category }) => {
+const SetDefaultProductInfo = ({ category }) => {
   return <Fragment>{checkCurrentCategory(category)}</Fragment>;
 };
 
-export default SetDefaultProductEtc;
+export default SetDefaultProductInfo;

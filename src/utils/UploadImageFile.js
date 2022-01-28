@@ -1,18 +1,18 @@
 import { useState } from 'react';
 import styled from 'styled-components';
 
-const UploadImageFile = ({ title, imgArray }) => {
-  const [tmpArr, setTmpArr] = useState(imgArray);
+const UploadImageFile = ({ imgArray }) => {
+  const [tmpArr, setTmpArr] = useState([]);
 
   const Uploadimagecontainer = styled.div`
-    border: 1px solid lightgray;
+    border: 1px solid white;
     display: flex;
     width: 800px;
     flex-direction: column;
     margin: 30px;
   `;
   const UploadImageTitle = styled.div`
-    border-bottom: 1px solid lightgray;
+    border-bottom: 1px solid white;
     width: 100%;
     float: left;
     display: flex;
@@ -52,26 +52,30 @@ const UploadImageFile = ({ title, imgArray }) => {
             style={{ width: '0%' }}
             type="file"
             accept="image/*"
-            onChange={e => setTmpArr([e.target.files[0].name].concat(tmpArr))}
+            onChange={e => {
+              setTmpArr([e.target.files[0].name].concat(tmpArr));
+              console.log('업로드 된 이미지 :', e.target.files[0].name);
+            }}
           />
           + 이미지 추가
         </UploadImageBtn>
         <ImageList>
-          {tmpArr.map(i => (
-            <div
-              onClick={e => {
-                setTmpArr(tmpArr.filter(e => e !== i));
-              }}
-              style={{
-                fontSize: '16px',
-                overflow: 'hidden',
-                textOverflow: 'ellipsis',
-                marginBottom: '10px',
-              }}
-            >
-              {i} <CancleBtn> X </CancleBtn>
-            </div>
-          ))}
+          {tmpArr &&
+            tmpArr.map(i => (
+              <div
+                onClick={e => {
+                  setTmpArr(tmpArr.filter(e => e !== i));
+                }}
+                style={{
+                  fontSize: '16px',
+                  overflow: 'hidden',
+                  textOverflow: 'ellipsis',
+                  marginBottom: '10px',
+                }}
+              >
+                {i} <CancleBtn> X </CancleBtn>
+              </div>
+            ))}
         </ImageList>
       </UploadImageInfo>
     </Uploadimagecontainer>

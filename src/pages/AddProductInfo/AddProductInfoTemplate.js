@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import AddProductInfoForm from './AddProductInfoForm';
-
+import SetProductImage from './SetProductImage';
 const AddProductInfoTemplate = () => {
   const [introImage, setIntroImg] = useState([]);
-  const [recommendImage, setRecommendImage] = useState([]);
+  const [recomArray, setRecomArray] = useState([]);
   const [init, Setinit] = useState(false);
   const [addProductInfoList, setAddProductInfoList] = useState([
     {
@@ -26,13 +26,13 @@ const AddProductInfoTemplate = () => {
     { header: '상품 옵션', categories: [] },
     {
       header: '상품 소개 이미지',
-      categories: [''],
+      categories: [],
     },
     {
       header: '구매자 추천 이미지',
-      categories: [''],
+      categories: [],
     },
-    { header: '상품 정보 고시', categories: [''] },
+    { header: '상품 정보 고시', categories: [] },
     {
       header: '상품 배송 설정',
       categories: [

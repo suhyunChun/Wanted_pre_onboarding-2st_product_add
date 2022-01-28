@@ -39,16 +39,15 @@ const SetProductBenefitContainer = () => {
       background-color: #0000cd;
     }
   `;
-
+  console.log('마일리지 적립 :', productBenefit);
   return (
-    <div>
+    <div style={{ marginTop: '10px' }}>
       <ToogleBtn
         type="checkbox"
         checked={productBenefit}
         value={productBenefit}
         onChange={value => {
           setProductBenefit(e => !e);
-          console.log(productBenefit);
         }}
         id="switch-benefit"
       />

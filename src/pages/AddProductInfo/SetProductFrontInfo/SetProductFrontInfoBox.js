@@ -16,7 +16,7 @@ const SetProductFrontInfoBox = () => {
   const [totalProductList, setTotalProductList] = useState([productList]);
 
   const handlingSettingList = useCallback(ls => {
-    console.log('Change list to ', ls);
+    console.log('정보고시 리스트 ', ls);
     setTotalProductList(ls);
   }, []);
   const FrontInfoContainer = styled.div`

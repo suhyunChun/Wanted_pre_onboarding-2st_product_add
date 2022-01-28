@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import styled from 'styled-components';
 
@@ -48,16 +48,15 @@ function SetProductEtc() {
     margin-right: 40px;
     border-right: 2px solid darkgrey;
   `;
-
+  console.log('감사카드 제공', productThanksCard);
   return (
-    <div>
+    <div style={{ marginTop: '10px' }}>
       <ToogleBtn
         type="checkbox"
         checked={productThanksCard}
         value={productThanksCard}
         onChange={value => {
           setProductThanksCard(e => !e);
-          console.log(productThanksCard);
         }}
         id="switch-etc"
       />

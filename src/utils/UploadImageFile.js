@@ -1,8 +1,8 @@
 import { useState } from 'react';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
-const UploadImageFile = ({ title, imgArray }) => {
-  const [tmpArr, setTmpArr] = useState(imgArray);
+const UploadImageFile = ({ sort }) => {
+  const [tmpArr, setTmpArr] = useState([]);
 
   const Uploadimagecontainer = styled.div`
     border: 1px solid lightgray;
@@ -10,14 +10,14 @@ const UploadImageFile = ({ title, imgArray }) => {
     width: 800px;
     flex-direction: column;
     margin: 30px;
-  `;
-  const UploadImageTitle = styled.div`
-    border-bottom: 1px solid lightgray;
-    width: 100%;
-    float: left;
-    display: flex;
-    padding: 10px;
-    font-weight: 700;
+
+    ${({ sort }) =>
+      sort === 'table' &&
+      css`
+        border: none;
+        width: 400px;
+        margin: 0;
+      `}
   `;
   const UploadImageInfo = styled.div`
     margin: 10px;
@@ -32,7 +32,7 @@ const UploadImageFile = ({ title, imgArray }) => {
     border: 2px solid #1c1c81;
     width: 130px;
     height: 45px;
-
+    cursor: pointer;
     font-weight: 550;
   `;
   const ImageList = styled.div`
@@ -42,10 +42,10 @@ const UploadImageFile = ({ title, imgArray }) => {
     border-radius: 100%;
     border: 1px solid lightgray;
     background-color: transparent;
+    cursor: pointer;
   `;
   return (
-    <Uploadimagecontainer>
-      <UploadImageTitle>{title}</UploadImageTitle>
+    <Uploadimagecontainer sort={sort}>
       <UploadImageInfo>
         <UploadImageBtn>
           <input

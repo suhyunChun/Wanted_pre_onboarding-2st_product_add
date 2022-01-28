@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import styled from 'styled-components';
 
-const UploadImageFile = ({ title, imgArray }) => {
+const UploadImageFile = ({ imgArray }) => {
   const [tmpArr, setTmpArr] = useState(imgArray);
 
   const Uploadimagecontainer = styled.div`
@@ -10,14 +10,6 @@ const UploadImageFile = ({ title, imgArray }) => {
     width: 800px;
     flex-direction: column;
     margin: 30px;
-  `;
-  const UploadImageTitle = styled.div`
-    border-bottom: 1px solid lightgray;
-    width: 100%;
-    float: left;
-    display: flex;
-    padding: 10px;
-    font-weight: 700;
   `;
   const UploadImageInfo = styled.div`
     margin: 10px;
@@ -45,7 +37,6 @@ const UploadImageFile = ({ title, imgArray }) => {
   `;
   return (
     <Uploadimagecontainer>
-      <UploadImageTitle>{title}</UploadImageTitle>
       <UploadImageInfo>
         <UploadImageBtn>
           <input

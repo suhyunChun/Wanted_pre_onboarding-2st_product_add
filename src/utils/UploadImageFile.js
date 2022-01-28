@@ -55,17 +55,16 @@ const UploadImageFile = ({ sort }) => {
             accept="image/*"
             onChange={e => {
               setTmpArr([e.target.files[0].name].concat(tmpArr));
-              console.log('업로드 된 이미지 :', e.target.files[0].name);
             }}
           />
           + 이미지 추가
         </UploadImageBtn>
         <ImageList>
           {tmpArr &&
-            tmpArr.map(i => (
+            tmpArr.map(index => (
               <div
-                onClick={e => {
-                  setTmpArr(tmpArr.filter(e => e !== i));
+                onClick={() => {
+                  setTmpArr(tmpArr.filter(e => e !== index));
                 }}
                 style={{
                   fontSize: '16px',
@@ -73,8 +72,9 @@ const UploadImageFile = ({ sort }) => {
                   textOverflow: 'ellipsis',
                   marginBottom: '10px',
                 }}
+                key={index}
               >
-                {i} <CancleBtn> X </CancleBtn>
+                {index} <CancleBtn> X </CancleBtn>
               </div>
             ))}
         </ImageList>

@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-
+import ToggleButton from 'react-toggle-button';
 import styled from 'styled-components';
 
-function SetProductEtc() {
-  const [productThanksCard, setProductThanksCard] = useState(false);
+const SetProductBenefitContainer = () => {
+  const [productBenefit, setProductBenefit] = useState(true);
 
   const ToogleBtn = styled.input`
     display: none;
@@ -39,33 +39,24 @@ function SetProductEtc() {
       background-color: #0000cd;
     }
   `;
-  const EtcTitle = styled.div`
-    background-color: #e4e4e4;
-    display: flex;
-    width: 150px;
-    height: 100%;
-    align-items: center;
-    margin-right: 40px;
-    border-right: 2px solid darkgrey;
-  `;
 
   return (
     <div>
       <ToogleBtn
         type="checkbox"
-        checked={productThanksCard}
-        value={productThanksCard}
+        checked={productBenefit}
+        value={productBenefit}
         onChange={value => {
-          setProductThanksCard(e => !e);
-          console.log(productThanksCard);
+          setProductBenefit(e => !e);
+          console.log(productBenefit);
         }}
-        id="switch-etc"
+        id="switch-benefit"
       />
-      <Label htmlFor="switch-etc" className="switchLabel">
+      <Label htmlFor="switch-benefit" className="switchLabel">
         <ToogleBall className="ball"></ToogleBall>
       </Label>
     </div>
   );
-}
+};
 
-export default SetProductEtc;
+export default SetProductBenefitContainer;

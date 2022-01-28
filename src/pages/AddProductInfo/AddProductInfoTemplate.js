@@ -26,11 +26,11 @@ const AddProductInfoTemplate = () => {
     { header: '상품 옵션', categories: [] },
     {
       header: '상품 소개 이미지',
-      categories: [],
+      categories: [''],
     },
     {
       header: '구매자 추천 이미지',
-      categories: [],
+      categories: [''],
     },
     { header: '상품 정보 고시', categories: [''] },
     {

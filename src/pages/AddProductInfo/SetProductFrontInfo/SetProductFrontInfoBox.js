@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useCallback } from 'react';
 import styled from 'styled-components';
 import SetProductFrontInfoInner from './SetProductFrontInfoInner';
 
@@ -15,6 +15,10 @@ const SetProductFrontInfoBox = () => {
   const [productList, setProductList] = useState(productListFormat);
   const [totalProductList, setTotalProductList] = useState([productList]);
 
+  const handlingSettingList = useCallback(ls => {
+    console.log('Change list to ', ls);
+    setTotalProductList(ls);
+  }, []);
   const FrontInfoContainer = styled.div`
     background-color: #e4e4e4;
     width: 800px;
@@ -43,7 +47,7 @@ const SetProductFrontInfoBox = () => {
         <SetProductFrontInfoInner
           productListOfEachItem={item}
           totalProductList={totalProductList}
-          setTotalProductList={setTotalProductList}
+          setTotalProductList={handlingSettingList}
           numberOfProduct={index}
         />
       ))}

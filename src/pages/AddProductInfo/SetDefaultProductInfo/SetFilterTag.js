@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import TextInput from '../../../components/common/TextInput.style';
-import { getFilterTag } from '../../../lib/api/filterTag';
+import tagListData from '../../../data/tagListData.json';
 
 const SetFilterTag = () => {
   const [isFocused, setIsFocused] = useState(false);
@@ -9,13 +9,10 @@ const SetFilterTag = () => {
   const [tagList, setTagList] = useState([]);
   const [selectedTagList, setSelectedTagList] = useState([]);
 
-  const getAllTagList = async () => {
+  const getAllTagList = () => {
     if (isFocused) return;
 
-    const response = await getFilterTag();
-    const {
-      data: { message },
-    } = response;
+    const { message } = tagListData;
 
     setTagList(message);
     setIsFocused(true);
@@ -26,10 +23,7 @@ const SetFilterTag = () => {
 
     setText(keyword);
 
-    const response = await getFilterTag();
-    const {
-      data: { message },
-    } = response;
+    const { message } = tagListData;
 
     const filteredTagList = message.filter(
       name => name.toLocaleLowerCase().indexOf(keyword.toLocaleLowerCase()) > -1
@@ -104,7 +98,7 @@ const SetFilterTag = () => {
                     id={name}
                     className="deleteButton"
                   >
-                    <img src="./images/icon_delete.png" />
+                    <img alt="deldteButton" src="./images/icon_delete.png" />
                   </button>
                 </Tag>
               );

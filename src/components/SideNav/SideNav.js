@@ -13,7 +13,6 @@ const SideNav = () => {
     height: 100%;
     background-color: white;
     border-left: 1px solid #cecece;
-    border-right: 1px solid #cecece;
     z-index: 999;
   `;
   const SideLeftNav = styled.div`

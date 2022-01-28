@@ -56,10 +56,36 @@ const SetProductDelivery = () => {
     padding-top: 20px;
     padding-left: 10px;
   `;
+
   const Hidden = styled.div`
     margin: 0 10px;
   `;
 
+  const ToogleBtn = styled.input`
+    display: none;
+  `;
+
+  const Label = styled.label`
+    position: relative;
+    height: 26px;
+    width: 50px;
+    border-radius: 50px;
+    background-color: #000;
+  `;
+
+  const ToogleBall = styled.div`
+    position: absolute;
+    height: 22px;
+    width: 22px;
+    border-radius: 11px;
+    top: 2px;
+    left: 2px;
+    transition: transform 0.2s linear;
+    background-color: #3498db;
+  `;
+
+  const [isToogle, setIsToogle] = useState(true);
+  console.log(isToogle);
   return (
     <Container>
       <DeliveryBox>
@@ -68,12 +94,20 @@ const SetProductDelivery = () => {
           <br /> 출발일 지정
         </DeliveryBoxTitle>
         <DeliveryBoxDetail>
-          <ToggleButton
-            value={selectDelivery}
-            onToggle={value => {
-              setSelectDelivery(e => !e);
-            }}
-          />
+          <div>
+            <ToogleBtn
+              type="checkbox"
+              checked={isToogle}
+              value={isToogle}
+              onChange={value => {
+                setIsToogle(e => !e);
+              }}
+              id={'test'}
+            />
+            <Label htmlFor={'test'}>
+              <ToogleBall className="ball"></ToogleBall>
+            </Label>
+          </div>
         </DeliveryBoxDetail>
       </DeliveryBox>
       <DeliveryBox>

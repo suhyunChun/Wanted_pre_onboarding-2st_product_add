@@ -4,8 +4,12 @@ import AddProductInfoForm from './AddProductInfoForm';
 import SetProductImage from './SetProductImage';
 import SetProductBenefit from './SetProductBenefit';
 import SetProductEtc from './SetProductEtc';
+
+import SetPeriod from './SetExposureAndPeriod/SetPeriod';
+import SetExposure from './SetExposureAndPeriod/SetExposure';
+/*
 import SetExposure from './SetExposure';
-import SetPeriod from './SetPeriod';
+import SetPeriod from './SetPeriod';*/
 import SetProductDelivery from './SetProductDelivery';
 import SetProductFrontInfoBox from './SetProductFrontInfo/SetProductFrontInfoBox';
 import ToggleButton from '../../utils/ToggleButton';
@@ -50,7 +54,6 @@ const AddProductInfoTemplate = () => {
 
   return (
     <Container>
-      <img src="toggle_selected.png" />
       {addProductInfoList.map(({ header, categories }, index) => {
         return <AddProductInfoForm header={header} categories={categories} />;
       })}

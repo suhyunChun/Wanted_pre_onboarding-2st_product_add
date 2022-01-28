@@ -65,7 +65,6 @@ const SetExposure = () => {
   return (
     <Container>
       <ContainerIndex>
-        <ContainerTitle>상품 노출 기한</ContainerTitle>
         <ContainerDetail2>
           <fieldset id="group1">
             <div>

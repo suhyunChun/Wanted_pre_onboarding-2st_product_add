@@ -1,19 +1,31 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import AdditonOptionProduct from './AdditonOptionProduct';
+import DeleteBtn from './deleteBtnStyle';
+import uuid from 'react-uuid';
 
-const Option = () => {
-  const [countArray, setCountArray] = useState([]);
-  const [btnClickCount, setBtnClickCount] = useState(0);
+const Option = ({ id, arrayOption, setArrayOption }) => {
+  const [additonOptionProductInfo, setAddtionOptionProductInfo] = useState([]);
+  // const [btnClickCount, setBtnClickCount] = useState(0);
+
   const additonOptionProductAddBtn = () => {
-    setBtnClickCount(btnClickCount + 1);
-    console.log(btnClickCount + 1);
-    setCountArray(countArray.concat(btnClickCount + 1));
+    // setBtnClickCount(btnClickCount + 1);
+    // console.log(btnClickCount + 1);
+    setAddtionOptionProductInfo(
+      additonOptionProductInfo.concat({ id: uuid() })
+    );
+    console.log(additonOptionProductInfo);
+  };
+
+  const optionDelete = () => {
+    console.log(id);
+    console.log(arrayOption);
+    setArrayOption(arrayOption.filter(array => array !== id));
   };
 
   return (
     <div>
-      <button>옵션삭제</button>
+      <DeleteBtn onClick={optionDelete}>옵션삭제</DeleteBtn>
       <div>
         <input
           placeholder="옵션명을 입력해 주세요. (필수)"
@@ -35,13 +47,13 @@ const Option = () => {
       </div>
       <button onClick={additonOptionProductAddBtn}>+</button>
       <span>추가 옵션 상품 추가</span>
-      {countArray.map(count => {
+      {additonOptionProductInfo.map(count => {
         return (
           <AdditonOptionProduct
-            key={count}
-            id={count}
-            countArray={countArray}
-            setCountArray={setCountArray}
+            key={count.id}
+            id={count.id}
+            additonOptionProductInfo={additonOptionProductInfo}
+            setAddtionOptionProductInfo={setAddtionOptionProductInfo}
           />
         );
       })}

@@ -1,13 +1,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import AddProductInfoForm from './AddProductInfoForm';
-import SetProductImage from './SetProductImage';
-import SetProductBenefit from './SetProductBenefit';
-import SetProductEtc from './SetProductEtc';
-import SetPeriod from './SetExposureAndPeriod/SetPeriod';
-import SetExposure from './SetExposureAndPeriod/SetExposure';
-import SetProductFrontInfoBox from './SetProductFrontInfo/SetProductFrontInfoBox';
-import ToggleButton from '../../utils/ToggleButton';
+
 const AddProductInfoTemplate = () => {
   const [introImage, setIntroImg] = useState([]);
   const [recommendImage, setRecommendImage] = useState([]);
@@ -32,11 +26,11 @@ const AddProductInfoTemplate = () => {
     { header: '상품 옵션', categories: [] },
     {
       header: '상품 소개 이미지',
-      categories: [],
+      categories: [''],
     },
     {
       header: '구매자 추천 이미지',
-      categories: [],
+      categories: [''],
     },
     { header: '상품 정보 고시', categories: [''] },
     {

@@ -9,7 +9,7 @@ import SetProductStore from './SetProductStore';
 
 const checkCurrentCategory = category => {
   switch (category) {
-    case '카테고리':
+    case '카테고리 *':
       return <SetCategory />;
     case '필터 태그':
       return <SetFilterTag />;

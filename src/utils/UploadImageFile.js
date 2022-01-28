@@ -2,7 +2,7 @@ import { useState } from 'react';
 import styled from 'styled-components';
 
 const UploadImageFile = ({ imgArray }) => {
-  const [tmpArr, setTmpArr] = useState(imgArray);
+  const [tmpArr, setTmpArr] = useState([]);
 
   const Uploadimagecontainer = styled.div`
     border: 1px solid white;

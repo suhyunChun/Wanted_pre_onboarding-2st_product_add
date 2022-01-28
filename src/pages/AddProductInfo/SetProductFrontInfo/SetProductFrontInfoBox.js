@@ -5,13 +5,14 @@ import SetProductFrontInfoInner from './SetProductFrontInfoInner';
 const SetProductFrontInfoBox = () => {
   const [numberOfProduct, setNumberOfProduct] = useState(1);
 
-  const [productList, setProductList] = useState([
+  const productListFormat = [
     { question: '제품명 / 중량', answer: '' },
     { question: '원산지/ 원재료 함량', answer: '' },
     { question: '등급', answer: '' },
     { question: '보관', answer: '' },
     { question: '식품 유형', answer: '' },
-  ]);
+  ];
+  const [productList, setProductList] = useState(productListFormat);
   const [totalProductList, setTotalProductList] = useState([productList]);
 
   const FrontInfoContainer = styled.div`
@@ -24,9 +25,9 @@ const SetProductFrontInfoBox = () => {
   const FrontInforAddingBtn = styled.button``;
 
   const addFormInFrontInfo = () => {
-    setTotalProductList(totalProductList.concat([productList]));
+    console.log('PRODUCT_LIST', productList);
+    setTotalProductList(totalProductList.concat([productListFormat]));
     setNumberOfProduct(numberOfProduct + 1);
-    console.log(totalProductList.concat(productList));
   };
   return (
     <FrontInfoContainer>

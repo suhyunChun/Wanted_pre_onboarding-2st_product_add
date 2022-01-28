@@ -52,6 +52,21 @@ const SetProductFrontInfoInner = ({
     console.log(tmpTotalProductList);
     setTotalProductList(tmpTotalProductList);
   };
+  const storeValueInFrontInfo = event => {
+    const target = event.target;
+    const value = target.value;
+    const name = target.name;
+    let tmpProductList = [...copiedProductList];
+    for (let i = 0; i < tmpProductList.length; i++) {
+      if (tmpProductList[i].question === name) {
+        tmpProductList[i].answer = value;
+      }
+    }
+
+    let tmpList = [...totalProductList];
+    tmpList[event.target.numberOfProduct] = tmpProductList;
+    setTotalProductList(tmpList);
+  };
 
   return (
     <FrontInfoInner>
@@ -67,16 +82,31 @@ const SetProductFrontInfoInner = ({
       </FrontInfoTitle>
       {copiedProductList.map(item => (
         <>
-          {item.question !== '' && item.answer === '' ? (
+          {item.question !== '' ? (
             <>
               {' '}
               {item.question}
-              <input placeholder={item.question + '을 입력을 해주세요'} />
+              <input
+                name={item.question}
+                value={item.answer}
+                placeholder={item.question + '을 입력을 해주세요'}
+                onChange={storeValueInFrontInfo}
+              />
             </>
           ) : (
             <>
-              <input placeholder="항목 제목 자유 입력" />{' '}
-              <input placeholder="내용을 입력해주세요." />
+              <input
+                placeholder="항목 제목 자유 입력"
+                name="question"
+                value={item.question}
+                onChange={storeValueInFrontInfo}
+              />{' '}
+              <input
+                name={item.question}
+                value={item.answer}
+                placeholder="내용을 입력해주세요."
+                onChange={storeValueInFrontInfo}
+              />
               <button>삭제</button>
             </>
           )}
@@ -89,5 +119,4 @@ const SetProductFrontInfoInner = ({
     </FrontInfoInner>
   );
 };
-
 export default SetProductFrontInfoInner;

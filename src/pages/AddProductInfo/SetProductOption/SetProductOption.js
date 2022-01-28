@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import OptionSet from './OptionSet';
+import DeleteBtn from './deleteBtnStyle';
 
 const SetProductOption = () => {
   const [arrayOptionSet, setArrayOptionSet] = useState([]);
@@ -21,7 +22,7 @@ const SetProductOption = () => {
     <ProductOptionContainer>
       <Header>
         <p>상품 옵션*</p>
-        <button onClick={clickShowAddOptionSet}>+옵션 세트 추가</button>
+        <DeleteBtn onClick={clickShowAddOptionSet}>+옵션 세트 추가</DeleteBtn>
       </Header>
       {arrayOptionSet.map((arrayOptionSetId, i) => {
         return (

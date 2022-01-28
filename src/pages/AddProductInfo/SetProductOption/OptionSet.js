@@ -1,8 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import Option from './Option';
+import DeleteBtn from './deleteBtnStyle';
 
 const OptionSet = ({ id, arrayOptionSet, setArrayOptionSet }) => {
+  const [arrayOption, setArrayOption] = useState([0]);
+  const [optionAddClickCount, setOptionAddClickCount] = useState(0);
+
   const clickRemoveOptionSet = () => {
     console.log(id);
     setArrayOptionSet(arrayOptionSet.filter(a => a !== id));
@@ -12,17 +16,31 @@ const OptionSet = ({ id, arrayOptionSet, setArrayOptionSet }) => {
     console.log(e.target.value);
   };
 
+  const clickShowAddOption = () => {
+    setOptionAddClickCount(optionAddClickCount + 1);
+    setArrayOption(arrayOption.concat([optionAddClickCount + 1]));
+  };
+
   return (
     <section>
       <h1>옵션세트추가 성공</h1>
       {id}
-      <button onClick={clickRemoveOptionSet}>옵션세트 삭제</button>
+      <DeleteBtn onClick={clickRemoveOptionSet}>옵션세트 삭제</DeleteBtn>
       <OptionSetContainer>
         <ImageAddContainer>
           <input type="file" accept="image/*" onInput={handleInputImage} />
         </ImageAddContainer>
-        <Option />
-        <button>옵션추가</button>
+        {arrayOption.map((array, i) => {
+          return (
+            <Option
+              key={i}
+              id={array}
+              arrayOption={arrayOption}
+              setArrayOption={setArrayOption}
+            />
+          );
+        })}
+        <button onClick={clickShowAddOption}>옵션추가</button>
       </OptionSetContainer>
     </section>
   );

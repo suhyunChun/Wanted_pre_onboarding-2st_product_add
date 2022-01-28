@@ -42,7 +42,11 @@ const AddProductInfoTemplate = () => {
     { header: '상품 정보 고시', categories: [''] },
     {
       header: '상품 배송 설정',
-      categories: [],
+      categories: [
+        '사용자 배송일 출발일 지정',
+        '방문 수령',
+        '선 주문 예약 배송',
+      ],
     },
     { header: '상품 혜택 허용 설정', categories: ['마일리지 적립'] },
     { header: '기타', categories: ['감사카드 제공'] },

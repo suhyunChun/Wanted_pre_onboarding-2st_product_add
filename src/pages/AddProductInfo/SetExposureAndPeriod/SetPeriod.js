@@ -20,18 +20,12 @@ const SetPeriod = () => {
   const ContainerIndex = styled.div`
     display: flex;
   `;
-  const ContainerTitle = styled.div`
-    font-size: 20px;
-    font-weight: 600;
-    padding: 25px 20px;
-    border: 1px solid #cecece;
-  `;
+
   const ContainerDetail = styled.div`
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     justify-content: center;
-    border: 1px solid #cecece;
     padding: 20px 30px;
   `;
   const Span = styled.span`

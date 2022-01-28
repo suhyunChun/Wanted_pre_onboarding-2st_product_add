@@ -12,7 +12,7 @@ const SetExposure = () => {
     selectValue: 'exposureShow',
   });
   const [exposureData, setExposureData] =
-    useState(`상품 판매 기한 : 제한 없음`);
+    useState(`상품 노출 기한 : 제한 없음`);
 
   const Container = styled.div`
     display: flex;
@@ -22,18 +22,11 @@ const SetExposure = () => {
   const ContainerIndex = styled.div`
     display: flex;
   `;
-  const ContainerTitle = styled.div`
-    font-size: 20px;
-    font-weight: 600;
-    padding: 25px 20px;
-    border: 1px solid #cecece;
-  `;
-  const ContainerDetail2 = styled.div`
+  const ContainerDetail = styled.div`
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     justify-content: center;
-    border: 1px solid #cecece;
     padding: 20px 30px;
   `;
   const Span = styled.span`
@@ -59,13 +52,11 @@ const SetExposure = () => {
     });
   };
 
-  console.log(exposureStartDate);
-  console.log(exposureLastDate);
   console.log(exposureData);
   return (
     <Container>
       <ContainerIndex>
-        <ContainerDetail2>
+        <ContainerDetail>
           <fieldset id="group1">
             <div>
               <input
@@ -136,7 +127,7 @@ const SetExposure = () => {
               />
             </LocalizationProvider>
           </ContainerDate>
-        </ContainerDetail2>
+        </ContainerDetail>
       </ContainerIndex>
     </Container>
   );

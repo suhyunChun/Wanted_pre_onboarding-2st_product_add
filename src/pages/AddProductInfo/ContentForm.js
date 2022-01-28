@@ -1,6 +1,7 @@
 import React, { useCallback } from 'react';
 import styled from 'styled-components';
 import SetDefaultProductInfo from './SetDefaultProductInfo/SetDefaultProductInfo';
+import SetDefaultDelivery from './SetDelivery/SetDelivery';
 import SetDefaultExposureAndPeriod from './SetExposureAndPeriod/SetExposureAndPeriod';
 import SetDefaultProductFrontInfo from './SetProductFrontInfo/SetProductFrontInfo';
 
@@ -15,6 +16,10 @@ const ContentForm = ({ header, category }) => {
 
       case '상품 기본 정보':
         return <SetDefaultProductInfo category={category} />;
+
+      case '상품 배송 설정':
+        return <SetDefaultDelivery category={category} />;
+
       default:
         return null;
     }

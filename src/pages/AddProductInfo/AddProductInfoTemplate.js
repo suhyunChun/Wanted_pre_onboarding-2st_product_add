@@ -6,7 +6,7 @@ const AddProductInfoTemplate = () => {
   const [addProductInfoList, setAddProductInfoList] = useState([
     {
       header: '노출 기간 판매 설정',
-      categories: ['상품 노출 기한', '상품 이미지'],
+      categories: ['상품 노출 기한', '상품 판매 기한'],
     },
     {
       header: '상품 기본 정보',

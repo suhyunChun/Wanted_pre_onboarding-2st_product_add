@@ -1,10 +1,14 @@
 import React, { useCallback } from 'react';
 import styled from 'styled-components';
 import SetDefaultProductInfo from './SetDefaultProductInfo/SetDefaultProductInfo';
+import SetDefaultExposureAndPeriod from './SetExposureAndPeriod/SetExposureAndPeriod';
 
 const ContentForm = ({ header, category }) => {
   const checkCurrentTable = useCallback(() => {
     switch (header) {
+      case '노출 기간 판매 설정':
+        return <SetDefaultExposureAndPeriod category={category} />;
+
       case '상품 기본 정보':
         return <SetDefaultProductInfo category={category} />;
       default:

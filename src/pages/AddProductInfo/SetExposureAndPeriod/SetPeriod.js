@@ -60,7 +60,6 @@ const SetPeriod = () => {
   return (
     <Container>
       <ContainerIndex>
-        <ContainerTitle>상품 판매 기한</ContainerTitle>
         <ContainerDetail>
           <fieldset id="group2">
             <div>

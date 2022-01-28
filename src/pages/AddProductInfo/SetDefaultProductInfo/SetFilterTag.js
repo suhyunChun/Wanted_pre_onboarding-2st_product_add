@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import TextInput from '../../../components/common/TextInput.style';
-import { getFilterTag } from '../../../lib/api/filterTag';
 
 const SetFilterTag = () => {
   const [isFocused, setIsFocused] = useState(false);
@@ -12,13 +11,13 @@ const SetFilterTag = () => {
   const getAllTagList = async () => {
     if (isFocused) return;
 
-    const response = await getFilterTag();
-    const {
-      data: { message },
-    } = response;
+    // const response = await getFilterTag();
+    // const {
+    //   data: { message },
+    // } = response;
 
-    setTagList(message);
-    setIsFocused(true);
+    // setTagList(message);
+    // setIsFocused(true);
   };
 
   const getTagListByKeyword = async event => {
@@ -26,16 +25,16 @@ const SetFilterTag = () => {
 
     setText(keyword);
 
-    const response = await getFilterTag();
-    const {
-      data: { message },
-    } = response;
+    // const response = await getFilterTag();
+    // const {
+    //   data: { message },
+    // } = response;
 
-    const filteredTagList = message.filter(
-      name => name.toLocaleLowerCase().indexOf(keyword.toLocaleLowerCase()) > -1
-    );
+    // const filteredTagList = message.filter(
+    //   name => name.toLocaleLowerCase().indexOf(keyword.toLocaleLowerCase()) > -1
+    // );
 
-    setTagList(filteredTagList);
+    // setTagList(filteredTagList);
   };
 
   const deleteTag = event => {

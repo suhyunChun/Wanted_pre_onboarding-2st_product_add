@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react';
-import SetProductBenefitContainer from './SetProductBenefit';
+import SetProductBenefitContainer from './SetProductBenefitContainer';
 
 const checkCurrentCategory = category => {
   return <SetProductBenefitContainer />;

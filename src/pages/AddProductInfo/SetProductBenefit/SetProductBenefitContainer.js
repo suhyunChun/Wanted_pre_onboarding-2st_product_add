@@ -4,6 +4,7 @@ import styled from 'styled-components';
 
 const SetProductBenefitContainer = () => {
   const [productBenefit, setProductBenefit] = useState(true);
+
   const ToogleBtn = styled.input`
     display: none;
     &:checked + .switchLabel .ball {
@@ -43,9 +44,11 @@ const SetProductBenefitContainer = () => {
     <div>
       <ToogleBtn
         type="checkbox"
+        checked={productBenefit}
         value={productBenefit}
         onChange={value => {
           setProductBenefit(e => !e);
+          console.log(productBenefit);
         }}
         id="switcPickuphInput"
       />

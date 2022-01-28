@@ -3,14 +3,20 @@ import styled from 'styled-components';
 import SetDefaultProductInfo from './SetDefaultProductInfo/SetDefaultProductInfo';
 import SetDefaultExposureAndPeriod from './SetExposureAndPeriod/SetExposureAndPeriod';
 import SetDefaultProductFrontInfo from './SetProductFrontInfo/SetProductFrontInfo';
-
+import SetDefaultProductEtc from './SetProductEtc/SetProductEtc';
 import SetProductImage from './SetProductImage';
+import SetDefaultProductBenefit from './SetProductBenefit/SetProductBenefit';
+
 const ContentForm = ({ header, category }) => {
   const [imgArray, setImgArray] = useState([]);
   const [recomArray, setRecomArray] = useState([]);
 
   const checkCurrentTable = useCallback(() => {
     switch (header) {
+      case '기타':
+        return <SetDefaultProductEtc category={category} />;
+      case '상품 혜택 허용 설정':
+        return <SetDefaultProductBenefit category={category} />;
       case '구매자 추천 이미지':
         return <SetProductImage imgArray={recomArray} />;
       case '상품 소개 이미지':

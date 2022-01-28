@@ -1,7 +1,12 @@
-import React from 'react';
+import React, { Fragment } from 'react';
+import UploadImageFile from '../../../utils/UploadImageFile';
 
 const SetProductFrontImage = () => {
-  return <div>32</div>;
+  return (
+    <Fragment>
+      <UploadImageFile sort="table" />
+    </Fragment>
+  );
 };
 
 export default SetProductFrontImage;

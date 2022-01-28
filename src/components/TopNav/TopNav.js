@@ -10,8 +10,8 @@ const TopNav = () => {
     position: fixed;
     top: 0;
     left: 0px;
-    min-width: 200px;
-    max-width: 200px;
+    min-width: 201px;
+    max-width: 201px;
     font-size: 24px;
     font-weight: 600;
     padding: 15px 20px;
@@ -27,7 +27,7 @@ const TopNav = () => {
     position: fixed;
     top: 0;
     left: 0px;
-    padding: 27px 550px;
+    padding: 27px 549.5px;
     background-color: white;
     border-right: 1px solid #cecece;
     border-bottom: 1px solid #cecece;

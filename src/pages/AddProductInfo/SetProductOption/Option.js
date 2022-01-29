@@ -8,8 +8,14 @@ const Option = ({ id, arrayOption, setArrayOption }) => {
   const [additonOptionProductInfo, setAddtionOptionProductInfo] = useState([]);
 
   const [discountRate, setDiscountRate] = useState(0);
-  const [realPrice, setRealPrice] = useState(null);
-  const [normalPrice, setNormalPrice] = useState(null);
+  /* const [realPrice, setRealPrice] = useState(null);
+  const [normalPrice, setNormalPrice] = useState(null); */
+  const [price, setPrice] = useState({
+    normalPrice: '',
+    realPrice: '',
+  });
+
+  const { normalPrice, realPrice } = price;
 
   const additonOptionProductAddBtn = () => {
     setAddtionOptionProductInfo(
@@ -22,17 +28,23 @@ const Option = ({ id, arrayOption, setArrayOption }) => {
     setArrayOption(arrayOption.filter(array => array.id !== id));
   };
 
-  const handleChangePrice = e => {
-    console.log(normalPrice, realPrice);
+  const discountCalculate = e => {
     let discount = 100 - (realPrice * 100) / normalPrice;
-    console.log(discount);
     setDiscountRate(Math.round(discount));
-    console.log(discountRate);
+  };
+
+  const handleInputPrice = e => {
+    const { name, value } = e.target;
+    setPrice({
+      ...price,
+      [name]: value,
+    });
   };
 
   useEffect(() => {
-    handleChangePrice();
-  }, [normalPrice, realPrice]);
+    discountCalculate();
+    console.log(price);
+  }, [price]);
 
   return (
     <OptionLayOut>
@@ -45,19 +57,19 @@ const Option = ({ id, arrayOption, setArrayOption }) => {
         <OptionBottomContainer>
           <form>
             <input
-              id="normalPrice"
+              name="normalPrice"
               type="number"
               value={normalPrice}
-              onChange={e => setNormalPrice(e.target.value)}
+              onChange={handleInputPrice}
               placeholder="상품 정상가 (필수)"
             />
             <span>원</span>
-            {discountRate > 0 ? <p>{`${discountRate}%`}</p> : <p>할인율</p>}
+            {discountRate > 0 ? <p>{`${discountRate}%`}</p> : <p>할인율%</p>}
             <input
-              id="realPrice"
+              name="realPrice"
               type="number"
               value={realPrice}
-              onChange={e => setRealPrice(e.target.value)}
+              onChange={handleInputPrice}
               placeholder="상품 판매가(필수)"
             />
             <span>원</span>

@@ -1,17 +1,12 @@
-import React, { useState, useCallback } from 'react';
+import React, { useCallback } from 'react';
 import styled from 'styled-components';
 import SetDefaultProductInfo from './SetDefaultProductInfo/SetDefaultProductInfo';
 import SetDefaultDelivery from './SetDelivery/SetDelivery';
 import SetDefaultExposureAndPeriod from './SetExposureAndPeriod/SetExposureAndPeriod';
-import SetDefaultProductFrontInfo from './SetProductFrontInfo/SetProductFrontInfo';
 import SetDefaultProductEtc from './SetProductEtc/SetProductEtc';
-import SetProductImage from './SetProductImage';
 import SetDefaultProductBenefit from './SetProductBenefit/SetProductBenefit';
 
 const ContentForm = ({ header, category }) => {
-  const [imgArray, setImgArray] = useState([]);
-  const [recomArray, setRecomArray] = useState([]);
-
   const checkCurrentTable = useCallback(() => {
     switch (header) {
       case '기타':

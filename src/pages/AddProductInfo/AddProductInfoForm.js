@@ -1,11 +1,9 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import ContentForm from './ContentForm';
 import SetDefaultContainerInfo from './SetDefaultContainerInfo/SetDefaultContainerInfo';
 
 const AddProductInfoForm = ({ header, categories }) => {
-  const [imgArray, setImgArray] = useState([]);
-
   return (
     <Container>
       <Header>{header}</Header>
@@ -30,8 +28,12 @@ const AddProductInfoForm = ({ header, categories }) => {
 const Container = styled.div`
   max-width: 900px;
   margin: 0px 200px;
+  margin-bottom: 50px;
   border: 1px solid #cecece;
-  border-top: none;
+
+  &:first-child {
+    border-top: none;
+  }
 `;
 
 const Header = styled.header`

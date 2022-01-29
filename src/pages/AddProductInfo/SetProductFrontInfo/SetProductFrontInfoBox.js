@@ -21,8 +21,9 @@ const SetProductFrontInfoBox = () => {
   }, []);
   const FrontInfoContainer = styled.div`
     background-color: #e4e4e4;
-    width: 800px;
+    width: 100%;
     height: 100%;
+    margin: 0 auto;
     padding: 30px;
   `;
 

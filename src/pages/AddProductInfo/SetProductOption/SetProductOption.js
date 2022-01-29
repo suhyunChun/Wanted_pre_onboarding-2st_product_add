@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import OptionSet from './OptionSet';
-import DeleteBtn from './deleteBtnStyle';
 
 const SetProductOption = () => {
   const [arrayOptionSet, setArrayOptionSet] = useState([]);
@@ -12,13 +11,8 @@ const SetProductOption = () => {
     console.log(optionSetAddClickCount);
     setArrayOptionSet(arrayOptionSet.concat([optionSetAddClickCount + 1]));
     console.log(arrayOptionSet);
-
-    /* const nextId = arrayOptionSet.length + 1;
-    setArrayOptionSet(arrayOptionSet.concat([nextId]));
-    console.log(arrayOptionSet.concat([nextId])); */
   };
-  console.log('a');
-  console.log('a');
+
   return (
     <ProductOptionContainer>
       <Header>
@@ -45,14 +39,7 @@ const ProductOptionContainer = styled.div`
   width: 100%;
 `;
 
-const Header = styled.header`
-  /* display: flex;
-  justify-content: space-between;
-  align-items: center;
-  & > p {
-    font-size: 1px;
-  } */
-`;
+const Header = styled.header``;
 
 const OptionSetAddBtn = styled.button`
   border-color: blue;

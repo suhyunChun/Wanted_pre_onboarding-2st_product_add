@@ -54,10 +54,10 @@ const AdditonOptionProduct = ({
 };
 
 const AdditonOptionProductSection = styled.section`
-  margin: 0 5px;
+  margin: 10px 5px;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   & div {
     width: 30px;
@@ -66,12 +66,14 @@ const AdditonOptionProductSection = styled.section`
     border-top-width: 0px;
     border-right-width: 0px;
     border-radius: 3px;
+    margin: 0 10px;
   }
 
   & > section {
     display: flex;
     align-items: center;
     justify-content: center;
+    margin: 0 10px;
   }
   & input {
     width: 250px;

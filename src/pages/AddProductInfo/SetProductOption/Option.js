@@ -62,23 +62,27 @@ const Option = ({ id, optionDelete }) => {
         />
         <OptionBottomContainer>
           <form>
-            <input
-              name="normalPrice"
-              type="number"
-              value={normalPrice}
-              onChange={handleInputPrice}
-              placeholder="상품 정상가 (필수)"
-            />
-            <span>원</span>
+            <div>
+              <input
+                name="normalPrice"
+                type="number"
+                value={normalPrice}
+                onChange={handleInputPrice}
+                placeholder="상품 정상가 (필수)"
+              />
+              <span>원</span>
+            </div>
             {discountRate > 0 ? <p>{`${discountRate}%`}</p> : <p>할인율%</p>}
-            <input
-              name="realPrice"
-              type="number"
-              value={realPrice}
-              onChange={handleInputPrice}
-              placeholder="상품 판매가(필수)"
-            />
-            <span>원</span>
+            <div>
+              <input
+                name="realPrice"
+                type="number"
+                value={realPrice}
+                onChange={handleInputPrice}
+                placeholder="상품 판매가(필수)"
+              />
+              <span>원</span>
+            </div>
           </form>
           <div>
             <input placeholder="재고 (필수)" />
@@ -116,6 +120,7 @@ const OptionLayOut = styled.div`
 
 const OptionNameInput = styled.input`
   height: 50px;
+  margin-top: 10px;
   border-radius: 4px;
   font-size: 18px;
 `;
@@ -123,14 +128,16 @@ const OptionBottomContainer = styled.div`
   display: flex;
   justify-content: space-evenly;
   align-items: center;
+  height: 70px;
   & > form {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 280px;
+    width: 50%;
   }
-  & > form > input {
-    width: 70px;
+  & input {
+    width: 140px;
+    height: 50px;
   }
 `;
 

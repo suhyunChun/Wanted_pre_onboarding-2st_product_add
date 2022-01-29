@@ -6,7 +6,6 @@ import uuid from 'react-uuid';
 
 const OptionSet = ({ id, arrayOptionSet, setArrayOptionSet }) => {
   const [arrayOption, setArrayOption] = useState([{ id: uuid() }]);
-  const [optionAddClickCount, setOptionAddClickCount] = useState(0);
 
   const clickRemoveOptionSet = () => {
     console.log(id);
@@ -18,7 +17,6 @@ const OptionSet = ({ id, arrayOptionSet, setArrayOptionSet }) => {
   };
 
   const clickShowAddOption = () => {
-    setOptionAddClickCount(optionAddClickCount + 1);
     setArrayOption(arrayOption.concat([{ id: uuid() }]));
     console.log(arrayOption);
   };

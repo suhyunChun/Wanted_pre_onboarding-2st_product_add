@@ -20,6 +20,11 @@ const OptionSet = ({ id, arrayOptionSet, setArrayOptionSet }) => {
   const clickShowAddOption = () => {
     setOptionAddClickCount(optionAddClickCount + 1);
     setArrayOption(arrayOption.concat([{ id: uuid() }]));
+    console.log(arrayOption);
+  };
+
+  const optionDelete = id => {
+    setArrayOption(arrayOption.filter(array => array.id !== id));
   };
 
   return (
@@ -31,12 +36,7 @@ const OptionSet = ({ id, arrayOptionSet, setArrayOptionSet }) => {
         </ImageAddContainer>
         {arrayOption.map((array, i) => {
           return (
-            <Option
-              key={i}
-              id={array.id}
-              arrayOption={arrayOption}
-              setArrayOption={setArrayOption}
-            />
+            <Option key={array.id} id={array.id} optionDelete={optionDelete} />
           );
         })}
         <OptionAddBtn onClick={clickShowAddOption}>+ 옵션추가</OptionAddBtn>

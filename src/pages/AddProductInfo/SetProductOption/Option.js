@@ -4,7 +4,7 @@ import AdditonOptionProduct from './AdditonOptionProduct';
 import DeleteBtn from './deleteBtnStyle';
 import uuid from 'react-uuid';
 
-const Option = ({ id, arrayOption, setArrayOption }) => {
+const Option = ({ id, optionDelete }) => {
   const [additonOptionProductInfo, setAddtionOptionProductInfo] = useState([]);
 
   const [discountRate, setDiscountRate] = useState(0);
@@ -19,14 +19,20 @@ const Option = ({ id, arrayOption, setArrayOption }) => {
 
   const additonOptionProductAddBtn = () => {
     setAddtionOptionProductInfo(
-      additonOptionProductInfo.concat([{ id: uuid() }])
+      additonOptionProductInfo.concat([
+        {
+          additonOptionProductId: uuid(),
+          addtionOptionName: '',
+          addtionOptionPrice: '',
+        },
+      ])
     );
     console.log(additonOptionProductInfo);
   };
 
-  const optionDelete = () => {
+  /* const optionDelete = () => {
     setArrayOption(arrayOption.filter(array => array.id !== id));
-  };
+  }; */
 
   const discountCalculate = e => {
     let discount = 100 - (realPrice * 100) / normalPrice;
@@ -48,7 +54,7 @@ const Option = ({ id, arrayOption, setArrayOption }) => {
 
   return (
     <OptionLayOut>
-      <DeleteBtn onClick={optionDelete}>삭제</DeleteBtn>
+      <DeleteBtn onClick={() => optionDelete(id)}>삭제</DeleteBtn>
       <div>
         <OptionNameInput
           placeholder="옵션명을 입력해 주세요. (필수)"
@@ -87,8 +93,8 @@ const Option = ({ id, arrayOption, setArrayOption }) => {
       {additonOptionProductInfo.map(count => {
         return (
           <AdditonOptionProduct
-            key={count.id}
-            id={count.id}
+            key={count.additonOptionProductId}
+            id={count.additonOptionProductId}
             additonOptionProductInfo={additonOptionProductInfo}
             setAddtionOptionProductInfo={setAddtionOptionProductInfo}
           />

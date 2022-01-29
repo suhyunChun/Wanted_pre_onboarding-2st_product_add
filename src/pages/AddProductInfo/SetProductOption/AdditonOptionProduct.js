@@ -9,16 +9,16 @@ const AdditonOptionProduct = ({
 }) => {
   const additionOptionProductDelete = () => {
     setAddtionOptionProductInfo(
-      additonOptionProductInfo.filter(ar => ar.id !== id)
+      additonOptionProductInfo.filter(ar => ar.additonOptionProductId !== id)
     );
   };
 
   const addtionOptionNameInfoAdd = e => {
     const addtionOptionName = e.target.value;
-    console.log(addtionOptionName);
 
     additonOptionProductInfo.map(info => {
-      if (info.id === id) return (info.addtionOptionName = addtionOptionName);
+      if (info.additonOptionProductId === id)
+        return (info.addtionOptionName = addtionOptionName);
     });
     console.log(additonOptionProductInfo);
   };
@@ -26,7 +26,8 @@ const AdditonOptionProduct = ({
   const addtionOptionPriceInfoAdd = e => {
     const addtionOptionPrice = e.target.value;
     additonOptionProductInfo.map(info => {
-      if (info.id === id) return (info.addtionOptionPrice = addtionOptionPrice);
+      if (info.additonOptionProductId === id)
+        return (info.addtionOptionPrice = addtionOptionPrice);
     });
     console.log(additonOptionProductInfo);
   };

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import DeleteBtn from './deleteBtnStyle';
 
@@ -7,8 +7,6 @@ const AdditonOptionProduct = ({
   additonOptionProductInfo,
   setAddtionOptionProductInfo,
 }) => {
-  const [addtionOptionName, setAddtionOptionName] = useState();
-
   const additionOptionProductDelete = () => {
     setAddtionOptionProductInfo(
       additonOptionProductInfo.filter(ar => ar.id !== id)
@@ -18,12 +16,11 @@ const AdditonOptionProduct = ({
   const addtionOptionNameInfoAdd = e => {
     const addtionOptionName = e.target.value;
     console.log(addtionOptionName);
-    // setAddtionOptionName(e.target.value);
+
     additonOptionProductInfo.map(info => {
       if (info.id === id) return (info.addtionOptionName = addtionOptionName);
     });
     console.log(additonOptionProductInfo);
-    // setAddtionOptionProductInfo([...additonOptionProductInfo]);
   };
 
   const addtionOptionPriceInfoAdd = e => {
@@ -32,7 +29,6 @@ const AdditonOptionProduct = ({
       if (info.id === id) return (info.addtionOptionPrice = addtionOptionPrice);
     });
     console.log(additonOptionProductInfo);
-    // setAddtionOptionProductInfo([...additonOptionProductInfo]);
   };
 
   return (

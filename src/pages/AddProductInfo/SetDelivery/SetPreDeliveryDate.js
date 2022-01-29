@@ -21,6 +21,7 @@ const SetPreDeliveryDate = () => {
     display: flex;
     flex-direction: column;
   `;
+
   const InsideDate = styled.span`
     font-size: 24px;
     font-weight: 600;
@@ -38,7 +39,9 @@ const SetPreDeliveryDate = () => {
     margin: 0 10px;
   `;
   const BeforeDate = styled.span`
-    font-size: 10px;
+    font-size: 15px;
+    color: #4d4b4b;
+    margin-right: 4px;
   `;
 
   const ToogleBtn = styled.input`

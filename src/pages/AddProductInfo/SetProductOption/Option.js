@@ -6,17 +6,12 @@ import uuid from 'react-uuid';
 
 const Option = ({ id, arrayOption, setArrayOption }) => {
   const [additonOptionProductInfo, setAddtionOptionProductInfo] = useState([]);
-  // const [btnClickCount, setBtnClickCount] = useState(0);
 
   const [discountRate, setDiscountRate] = useState(0);
   const [realPrice, setRealPrice] = useState(null);
   const [normalPrice, setNormalPrice] = useState(null);
-  /* let realPrice = 0;
-  let normalPrice = 0; */
 
   const additonOptionProductAddBtn = () => {
-    // setBtnClickCount(btnClickCount + 1);
-    // console.log(btnClickCount + 1);
     setAddtionOptionProductInfo(
       additonOptionProductInfo.concat([{ id: uuid() }])
     );
@@ -24,8 +19,6 @@ const Option = ({ id, arrayOption, setArrayOption }) => {
   };
 
   const optionDelete = () => {
-    console.log(id);
-    console.log(arrayOption);
     setArrayOption(arrayOption.filter(array => array.id !== id));
   };
 
